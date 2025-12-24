@@ -1,0 +1,79 @@
+.item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+:host {
+  display: block;
+  height: 100%;
+  position: relative;
+}
+
+:host-context(cc-taskbar) > .item {
+  height: 100%;
+  padding: 0 12px;
+}
+
+.submenu ::ng-deep .item {
+  height: 36px;
+  padding: 0 16px;
+  align-items: center;
+}
+
+.item:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  line-height: 1;
+}
+
+.submenu {
+  position: absolute;
+  min-width: 180px;
+  background: #333;
+  border: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 1000;
+}
+
+.submenu.level-1 {
+  top: 100%;
+  left: 0;
+}
+
+.submenu.level-n {
+  top: 0;
+  left: 100%;
+}
+
+:host-context(cc-taskbar) > .item + .submenu {
+  top: 100%;
+  left: 0;
+}
+
+.submenu ::ng-deep cc-taskbar-item > .item + .submenu {
+  top: 0;
+  left: 100%;
+}
+.submenu ::ng-deep cc-taskbar-item {
+  height: 36px;
+}
+
+.submenu ::ng-deep .item {
+  height: 100%;
+  padding: 0 16px;
+}
+
