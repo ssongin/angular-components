@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "storybook": "ng run common-components:storybook",
+    "build-storybook": "ng run common-components:build-storybook"
   },
   "prettier": {
     "printWidth": 100,
@@ -33,8 +35,24 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^2.2.0",
+    "@angular-devkit/architect": "^0.2100.0",
+    "@angular-devkit/build-angular": "^21.0.0",
+    "@angular-devkit/core": "^21.0.0",
+    "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
-    "typescript": "~5.9.2"
+    "@angular/platform-browser-dynamic": "^21.0.0",
+    "@compodoc/compodoc": "^1.1.32",
+    "@storybook/addon-a11y": "^10.1.10",
+    "@storybook/addon-docs": "^10.1.10",
+    "@storybook/addon-onboarding": "^10.1.10",
+    "@storybook/angular": "^10.1.10",
+    "jsdom": "^27.1.0",
+    "ng-packagr": "^21.0.0",
+    "storybook": "^10.1.10",
+    "typescript": "~5.9.2",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.8"
   }
 }
