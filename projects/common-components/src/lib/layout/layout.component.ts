@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ui-layout',
+  selector: 'cc-layout',
   standalone: true,
   template: `
     <div [class]="layoutClass">

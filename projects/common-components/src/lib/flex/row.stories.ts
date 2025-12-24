@@ -9,11 +9,11 @@ export default {
 export const Default = {
   render: () => ({
     template: `
-      <ui-row gap="16px">
+      <cc-row gap="16px">
         <div style="background:#ccc">A</div>
         <div style="background:#bbb">B</div>
         <div style="background:#aaa">C</div>
-      </ui-row>
+      </cc-row>
     `,
   }),
 };

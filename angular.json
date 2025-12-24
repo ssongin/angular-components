@@ -3,7 +3,10 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -59,6 +62,16 @@
               "projects/common-components"
             ],
             "outputDir": "storybook-static"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/common-components/**/*.ts",
+              "projects/common-components/**/*.html"
+            ],
+            "eslintConfig": "projects/common-components/eslint.config.js"
           }
         }
       }

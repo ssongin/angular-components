@@ -1,5 +1,5 @@
 {
-  "name": "angular-components",
+  "name": "@ssongin/angular-components",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run common-components:storybook",
-    "build-storybook": "ng run common-components:build-storybook"
+    "build-storybook": "ng run common-components:build-storybook",
+    "lint": "ng lint"
   },
   "prettier": {
     "printWidth": 100,
@@ -24,6 +25,9 @@
   },
   "private": true,
   "packageManager": "npm@11.6.4",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
@@ -43,15 +47,19 @@
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
     "@angular/platform-browser-dynamic": "^21.0.0",
+    "@changesets/cli": "^2.29.8",
     "@compodoc/compodoc": "^1.1.32",
     "@storybook/addon-a11y": "^10.1.10",
     "@storybook/addon-docs": "^10.1.10",
     "@storybook/addon-onboarding": "^10.1.10",
     "@storybook/angular": "^10.1.10",
+    "angular-eslint": "21.1.0",
+    "eslint": "^9.39.1",
     "jsdom": "^27.1.0",
     "ng-packagr": "^21.0.0",
     "storybook": "^10.1.10",
     "typescript": "~5.9.2",
+    "typescript-eslint": "8.47.0",
     "vite": "^7.3.0",
     "vitest": "^4.0.8"
   }

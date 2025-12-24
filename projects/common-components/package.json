@@ -1,6 +1,9 @@
 {
-  "name": "common-components",
+  "name": "@ssongin/common-components",
   "version": "0.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "peerDependencies": {
     "@angular/common": "^21.0.0",
     "@angular/core": "^21.0.0"

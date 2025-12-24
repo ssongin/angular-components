@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ui-row',
+  selector: 'cc-row',
   standalone: true,
   template: `
     <div class="row" [style.gap]="gap">
@@ -16,5 +16,5 @@ import { Component, Input } from '@angular/core';
   `],
 })
 export class RowComponent {
-  @Input() gap: string = '1rem';
+  @Input() gap = '1rem';
 }
