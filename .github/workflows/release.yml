@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - 'CHANGELOG.md'
       - '.changeset/**'
+      - 'projects/**/CHANGELOG.md'
       - 'projects/**/package.json'
 
 permissions:

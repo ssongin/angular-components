@@ -1,0 +1,20 @@
+<div
+  class="item"
+  [class.menu]="type === 'menu'"
+  [class.disabled]="disabled"
+  tabindex="0"
+  role="button"
+  (click)="onClick($event)"
+  (keydown.enter)="onClick($event)"
+  (keydown.space)="onClick($event)"
+  (mouseenter)="open()"
+  (mouseleave)="close()"
+>
+  <span class="label">{{ label }}</span>
+
+  @if (type === 'menu' && openMenu) {
+    <div class="submenu" [class.level-1]="submenuLevel === 1" [class.level-n]="submenuLevel > 1">
+      <ng-content></ng-content>
+    </div>
+  }
+</div>
