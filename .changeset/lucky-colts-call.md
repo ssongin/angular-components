@@ -1,5 +1,5 @@
 ---
-'@ssongin/angular-components': patch
+'@ssongin/common-components': patch
 ---
 
 Add Github Actions files and Changeset addon
