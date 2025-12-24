@@ -15,11 +15,11 @@ export const Default: StoryObj<LayoutComponent> = {
     props: args,
 
     template: `
-      <ui-layout [type]="type">
+      <cc-layout [type]="type">
         <div style="background:#eee;padding:2rem">
           Default fill content
         </div>
-      </ui-layout>
+      </cc-layout>
     `
   })
 };
@@ -33,11 +33,11 @@ export const Full: StoryObj<LayoutComponent> = {
     props: args,
 
     template: `
-      <ui-layout [type]="type">
+      <cc-layout [type]="type">
         <div style="background:#eee;padding:2rem">
           Fill content
         </div>
-      </ui-layout>
+      </cc-layout>
     `
   })
 };
@@ -47,11 +47,11 @@ export const Centered: StoryObj<LayoutComponent> = {
   render: (args) => ({
     props: args,
     template: `
-      <ui-layout [type]="type">
+      <cc-layout [type]="type">
         <div style="background:#eee;padding:2rem">
           Centered content
         </div>
-      </ui-layout>
+      </cc-layout>
     `,
   }),
 };
