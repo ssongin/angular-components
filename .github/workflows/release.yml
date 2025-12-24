@@ -6,37 +6,34 @@ on:
 
 permissions:
   contents: write
-  packages: write     # REQUIRED for GitHub Packages
-  id-token: write     # REQUIRED for Trusted Publishing
+  packages: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
           registry-url: https://npm.pkg.github.com
+          scope: '@ssongin'
           cache: npm
 
-      - name: Verify Node version
-        run: node --version
+      - run: npm ci
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npx changeset version
 
-      - name: Version packages (Changesets)
-        run: npx changeset version
+      - run: npm run build
 
-      - name: Build Angular library
-        run: npm run build
-
-      - name: Publish to GitHub Packages
+      - name: Publish libraries
         run: |
-          cd dist/common-components
-          npm publish
+          for pkg in dist/*; do
+            cd "$pkg"
+            npm publish
+            cd ../..
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
