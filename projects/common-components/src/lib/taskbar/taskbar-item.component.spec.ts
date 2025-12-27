@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { CcTaskbarItemComponent } from './taskbar-item.component';
+import { TaskbarItemComponent } from './taskbar-item.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
     </cc-taskbar-item>
   `,
   standalone: true,
-  imports: [CcTaskbarItemComponent, CommonModule],
+  imports: [TaskbarItemComponent, CommonModule],
 })
 class TestHostComponent {
   parentDisabled = false;
@@ -60,7 +60,7 @@ describe('CcTaskbarItemComponent', () => {
     fixture.detectChanges();
 
     const components = fixture.debugElement.queryAll(By.css('cc-taskbar-item'))
-      .map(de => de.componentInstance as CcTaskbarItemComponent);
+      .map(de => de.componentInstance as TaskbarItemComponent);
 
     components.forEach(c => c.ngAfterContentInit?.());
 

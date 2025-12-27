@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CcTaskbarComponent } from './taskbar.component';
-import { CcTaskbarItemComponent } from './taskbar-item.component';
+import { TaskbarComponent } from './taskbar.component';
+import { TaskbarItemComponent } from './taskbar-item.component';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
     </cc-taskbar>
   `,
   standalone: true,
-  imports: [CcTaskbarComponent, CcTaskbarItemComponent],
+  imports: [TaskbarComponent, TaskbarItemComponent],
 })
 class TestHostComponent {}
 
@@ -30,7 +30,7 @@ describe('CcTaskbarComponent', () => {
 
   it('should render taskbar items', () => {
     const items = fixture.debugElement.queryAll(
-      By.directive(CcTaskbarItemComponent)
+      By.directive(TaskbarItemComponent)
     );
     expect(items.length).toBe(2);
   });

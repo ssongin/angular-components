@@ -1,15 +1,15 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { Router } from '@angular/router';
-import { CcTaskbarComponent } from '../taskbar/taskbar.component';
-import { CcTaskbarItemComponent } from '../taskbar/taskbar-item.component';
+import { TaskbarComponent } from '../taskbar/taskbar.component';
+import { TaskbarItemComponent } from '../taskbar/taskbar-item.component';
 import { CommonModule } from '@angular/common';
 
-const meta: Meta<CcTaskbarComponent> = {
+const meta: Meta<TaskbarComponent> = {
   title: 'Navigation/Taskbar',
-  component: CcTaskbarComponent,
+  component: TaskbarComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, CcTaskbarComponent, CcTaskbarItemComponent],
+      imports: [CommonModule, TaskbarComponent, TaskbarItemComponent],
       providers: [
         {
           provide: Router,
@@ -23,7 +23,7 @@ const meta: Meta<CcTaskbarComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<CcTaskbarComponent>;
+type Story = StoryObj<TaskbarComponent>;
 
 export const Basic: Story = {
   render: () => ({
