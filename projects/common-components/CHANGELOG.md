@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.2.1
+
+### Patch Changes
+
+- aacc19b: Add missing component exports
+
 ## 0.2.0
 
 ### Minor Changes
