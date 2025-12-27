@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
 })
-export class CcTaskbarItemComponent implements AfterContentInit, AfterContentChecked {
+export class TaskbarItemComponent implements AfterContentInit, AfterContentChecked {
   @Input() type: 'menu' | 'item' = 'item';
   @Input() label = '';
   @Input() disabled = false;
@@ -16,8 +16,8 @@ export class CcTaskbarItemComponent implements AfterContentInit, AfterContentChe
   openMenu = false;
   submenuLevel = 1;
 
-  @ContentChildren(CcTaskbarItemComponent, { descendants: true })
-  children!: QueryList<CcTaskbarItemComponent>;
+  @ContentChildren(TaskbarItemComponent, { descendants: true })
+  children!: QueryList<TaskbarItemComponent>;
 
   private propagateDisabled() {
     this.children.forEach(child => {

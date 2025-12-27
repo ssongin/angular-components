@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   styleUrls: ['./taskbar.component.css'],
 })
-export class CcTaskbarComponent {}
+export class TaskbarComponent {}
