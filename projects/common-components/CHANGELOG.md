@@ -1,5 +1,12 @@
 # @ssongin/common-components
 
+## 0.2.0
+
+### Minor Changes
+
+- 560806d: Add popup component
+- 560806d: Add essentials: button, divider, header, text components
+
 ## 0.1.1
 
 ### Patch Changes
