@@ -11,7 +11,7 @@ export class ButtonComponent {
   @Input() variant: 'default' | 'primary' = 'default';
   @Input() disabled = false;
 
-  @Output() onClick = new EventEmitter<Event>();
+  @Output() clicked = new EventEmitter<Event>();
 
   handleClick(event: Event) {
     if (this.disabled) {
@@ -19,6 +19,7 @@ export class ButtonComponent {
       event.stopPropagation();
       return;
     }
-    this.onClick.emit(event);
+
+    this.clicked.emit(event);
   }
 }

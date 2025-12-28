@@ -21,9 +21,32 @@ describe('HeaderComponent', () => {
   });
 
   it('should display label', () => {
-    component.label = 'Test Header'; 
+    component.label = 'Test Header';
     fixture.detectChanges();
+
     const h2 = nativeElement.querySelector('h2');
-    expect(h2?.textContent).toBe('Test Header');
+  expect(h2?.textContent?.trim()).toBe('Test Header');  });
+
+  it('should apply md class by default', () => {
+    fixture.detectChanges();
+
+    const h2 = nativeElement.querySelector('h2');
+    expect(h2?.classList.contains('md')).toBe(true);
+  });
+
+  it('should apply sm class when size is sm', () => {
+    component.size = 'sm';
+    fixture.detectChanges();
+
+    const h2 = nativeElement.querySelector('h2');
+    expect(h2?.classList.contains('sm')).toBe(true);
+  });
+
+  it('should apply lg class when size is lg', () => {
+    component.size = 'lg';
+    fixture.detectChanges();
+
+    const h2 = nativeElement.querySelector('h2');
+    expect(h2?.classList.contains('lg')).toBe(true);
   });
 });

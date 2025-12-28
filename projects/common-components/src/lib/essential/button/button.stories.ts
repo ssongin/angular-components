@@ -19,7 +19,7 @@ const meta: Meta<ButtonComponent> = {
       control: 'boolean'
     }
   },
-  args: {onClick: fn() },
+  args: {clicked: fn() },
 };
 
 export default meta;
