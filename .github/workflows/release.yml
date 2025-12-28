@@ -30,65 +30,50 @@ jobs:
           COMMIT_MSG=$(git log -1 --pretty=%s)
           echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
 
-      - name: Skip docs/test/merge commits
-        if: startsWith(steps.commit.outputs.message, 'chore(release)') ||
-            startsWith(steps.commit.outputs.message, 'docs') ||
-            startsWith(steps.commit.outputs.message, 'test') ||
-            startsWith(steps.commit.outputs.message, 'Merge')
+      - name: Skip non-release commits
+        if: |
+          startsWith(steps.commit.outputs.message, 'chore(release)') ||
+          startsWith(steps.commit.outputs.message, 'docs') ||
+          startsWith(steps.commit.outputs.message, 'test') ||
+          startsWith(steps.commit.outputs.message, 'Merge')
         run: |
           echo "Skipping release"
           exit 0
 
-      - name: Get latest version
-        id: version
-        run: |
-          git fetch --tags
-          latest=$(git tag --sort=-v:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
-          echo "latest=${latest:-0.0.0}" >> $GITHUB_OUTPUT
-
-      - name: Calculate next version
-        id: semver
-        run: |
-          IFS='.' read -r major minor patch <<< "${{ steps.version.outputs.latest }}"
-          msg="${{ steps.commit.outputs.message }}"
-
-          case "$msg" in
-            epic*|major*) major=$((major+1)); minor=0; patch=0 ;;
-            feat*) minor=$((minor+1)); patch=0 ;;
-            fix*|build*|chore*|perf*|refactor*|revert*|style*|cicd*) patch=$((patch+1)) ;;
-            *) echo "No version bump"; exit 0 ;;
-          esac
-
-          echo "version=$major.$minor.$patch" >> $GITHUB_OUTPUT
+      - run: npm ci
 
       - name: Generate changeset
         run: |
           mkdir -p .changeset
           slug=$(date +%s)
-          echo "---" > .changeset/$slug.md
-          echo "\"@ssongin/common-components\": ${{
-            startsWith(steps.commit.outputs.message, 'feat') && 'minor' ||
-            startsWith(steps.commit.outputs.message, 'epic') && 'major' ||
-            startsWith(steps.commit.outputs.message, 'major') && 'major' ||
-            'patch'
-          }}" >> .changeset/$slug.md
-          echo "---" >> .changeset/$slug.md
-          echo "" >> .changeset/$slug.md
-          echo "${{ steps.commit.outputs.message }}" >> .changeset/$slug.md
 
-      - run: npm ci
+          if [[ "${{ steps.commit.outputs.message }}" == feat* ]]; then
+            bump=minor
+          elif [[ "${{ steps.commit.outputs.message }}" == epic* || "${{ steps.commit.outputs.message }}" == major* ]]; then
+            bump=major
+          else
+            bump=patch
+          fi
+
+          cat <<EOF > .changeset/$slug.md
+          ---
+          "@ssongin/common-components": $bump
+          ---
+
+          ${{ steps.commit.outputs.message }}
+          EOF
 
       - name: Apply changeset version
-        run: npm exec changeset version
+        run: ./node_modules/.bin/changeset version
 
       - name: Commit version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add .
-          git commit -m "chore(release): v${{ steps.semver.outputs.version }}"
-          git tag ${{ steps.semver.outputs.version }}
-          git push origin master --tags
+          git commit -m "chore(release): version bump"
+          git push origin master
 
       - run: npm run build
 
