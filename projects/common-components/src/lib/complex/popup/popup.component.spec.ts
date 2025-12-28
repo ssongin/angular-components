@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PopupComponent } from './popup.component';
-import { HeaderComponent } from '../essential/header.component';
-import { DividerComponent } from '../essential/divider/divider.component';
-import { TextComponent } from '../essential/text.component';
-import { ButtonComponent } from '../essential/button/button.component';
+import { HeaderComponent } from '../../essential/header/header.component';
+import { DividerComponent } from '../../essential/divider/divider.component';
+import { TextComponent } from '../../essential/text/text.component';
+import { ButtonComponent } from '../../essential/button/button.component';
 
 describe('PopupComponent', () => {
   let fixture: ComponentFixture<PopupComponent>;
