@@ -3,11 +3,6 @@ name: Release
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - 'CHANGELOG.md'
-      - '.changeset/**'
-      - 'projects/**/CHANGELOG.md'
-      - 'projects/**/package.json'
 
 permissions:
   contents: write
@@ -19,36 +14,88 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
           registry-url: https://npm.pkg.github.com
           scope: '@ssongin'
           cache: npm
 
-      - run: npm ci
+      - name: Extract commit message
+        id: commit
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%s)
+          echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
 
-      - run: npx changeset version
+      - name: Skip docs/test/merge commits
+        if: startsWith(steps.commit.outputs.message, 'docs') ||
+            startsWith(steps.commit.outputs.message, 'test') ||
+            startsWith(steps.commit.outputs.message, 'Merge')
+        run: |
+          echo "Skipping release"
+          exit 0
+
+      - name: Get latest version
+        id: version
+        run: |
+          git fetch --tags
+          latest=$(git tag --sort=-v:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
+          echo "latest=${latest:-0.0.0}" >> $GITHUB_OUTPUT
+
+      - name: Calculate next version
+        id: semver
+        run: |
+          IFS='.' read -r major minor patch <<< "${{ steps.version.outputs.latest }}"
+          msg="${{ steps.commit.outputs.message }}"
+
+          case "$msg" in
+            epic*|major*) major=$((major+1)); minor=0; patch=0 ;;
+            feat*) minor=$((minor+1)); patch=0 ;;
+            fix*|build*|chore*|perf*|refactor*|revert*|style*|cicd*) patch=$((patch+1)) ;;
+            *) echo "No version bump"; exit 0 ;;
+          esac
+
+          echo "version=$major.$minor.$patch" >> $GITHUB_OUTPUT
+
+      - name: Generate changeset
+        run: |
+          mkdir -p .changeset
+          slug=$(date +%s)
+          echo "---" > .changeset/$slug.md
+          echo "\"@ssongin/*\": ${{
+            startsWith(steps.commit.outputs.message, 'feat') && 'minor' ||
+            startsWith(steps.commit.outputs.message, 'epic') && 'major' ||
+            startsWith(steps.commit.outputs.message, 'major') && 'major' ||
+            'patch'
+          }}" >> .changeset/$slug.md
+          echo "---" >> .changeset/$slug.md
+          echo "" >> .changeset/$slug.md
+          echo "${{ steps.commit.outputs.message }}" >> .changeset/$slug.md
+
+      - name: Apply changeset version
+        run: npx changeset version
 
       - name: Commit version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "chore(release): version bump" || echo "No changes to commit"
+          git commit -m "chore(release): v${{ steps.semver.outputs.version }}"
+          git tag ${{ steps.semver.outputs.version }}
+          git push origin master --tags
 
-      - name: Push changes
-        run: git push origin HEAD:master
-
+      - run: npm ci
       - run: npm run build
 
       - name: Publish libraries
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           for pkg in dist/*; do
             cd "$pkg"
             npm publish
             cd ../..
           done
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
