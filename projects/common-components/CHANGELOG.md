@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.2.4
+
+### Patch Changes
+
+- cicd: remove git tags from github actions
+
 ## 0.2.3
 
 ### Patch Changes
