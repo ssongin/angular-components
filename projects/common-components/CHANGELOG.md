@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.2.5
+
+### Patch Changes
+
+- cicd: Deploy Github Pages via Github Actions
+
 ## 0.2.4
 
 ### Patch Changes
