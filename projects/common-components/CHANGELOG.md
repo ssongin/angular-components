@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.2.6
+
+### Patch Changes
+
+- fix: Change storybook build command name
+
 ## 0.2.5
 
 ### Patch Changes
