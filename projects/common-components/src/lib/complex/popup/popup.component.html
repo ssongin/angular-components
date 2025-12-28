@@ -1,0 +1,18 @@
+@if (visible) {
+  <div class="overlay" [class.visible]="visible" role="dialog" aria-modal="true" [attr.aria-hidden]="!visible">
+    <div class="window">
+      <cc-header [label]="title"></cc-header>
+      <cc-divider></cc-divider>
+
+      <div class="content">
+        <ng-content select="[popup-content]"></ng-content>
+      </div>
+
+      <cc-divider></cc-divider>
+
+      <div class="controls">
+        <ng-content select="[popup-controls]"></ng-content>
+      </div>
+    </div>
+  </div>
+}

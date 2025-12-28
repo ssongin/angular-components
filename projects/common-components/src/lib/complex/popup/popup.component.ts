@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { HeaderComponent } from '../essential/header.component';
-import { DividerComponent } from '../essential/divider/divider.component';
+import { HeaderComponent } from '../../essential/header/header.component';
+import { DividerComponent } from '../../essential/divider/divider.component';
 
 @Component({
   selector: 'cc-popup',

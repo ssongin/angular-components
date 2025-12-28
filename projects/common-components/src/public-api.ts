@@ -1,4 +1,4 @@
-export * from './lib/complex/popup.component'
+export * from './lib/complex/popup/popup.component'
 export * from './lib/essential/button/button.component'
 export * from './lib/essential/divider/divider.component'
 export * from './lib/essential/header/header.component'
