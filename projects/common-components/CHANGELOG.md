@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.2.7
+
+### Patch Changes
+
+- fix: Change docusaurus base url
+
 ## 0.2.6
 
 ### Patch Changes
