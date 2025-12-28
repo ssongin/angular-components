@@ -1,5 +1,14 @@
 # @ssongin/common-components
 
+## 0.2.2
+
+### Patch Changes
+
+- ab5c646: Clean up button component
+- 8112597: Fix popup component
+- 5b1b740: Cleanup text and header components
+- ab5c646: Clean up divider component
+
 ## 0.2.1
 
 ### Patch Changes
