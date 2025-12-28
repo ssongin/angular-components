@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://npm.pkg.github.com
           scope: '@ssongin'
           cache: npm
@@ -31,7 +31,8 @@ jobs:
           echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
 
       - name: Skip docs/test/merge commits
-        if: startsWith(steps.commit.outputs.message, 'docs') ||
+        if: startsWith(steps.commit.outputs.message, 'chore(release)') ||
+            startsWith(steps.commit.outputs.message, 'docs') ||
             startsWith(steps.commit.outputs.message, 'test') ||
             startsWith(steps.commit.outputs.message, 'Merge')
         run: |
