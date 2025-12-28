@@ -34,6 +34,16 @@
                 "name": "Centered",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"center\">Centered text</cc-text>`,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Centered",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/common-components/src/lib/layout/layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -54,31 +64,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: 'Header Title',\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">Regular text</cc-text>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    muted: false,\r\n    align: 'left',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\" [align]=\"align\">Regular text</cc-text>`,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/layout/layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<LayoutComponent>",
+                "defaultValue": "{\r\n  args: {\r\n    type: \"\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Default fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
             },
             {
                 "name": "Default",
@@ -104,21 +104,41 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/layout/layout.stories.ts",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "StoryObj<LayoutComponent>",
-                "defaultValue": "{\r\n  args: {\r\n    type: \"\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Default fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Button</cc-button>`,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Header Title',\r\n    size: 'md',\r\n  },\r\n}"
+            },
+            {
+                "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\">Button</cc-button>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Disabled</cc-button>`,\r\n  }),\r\n}"
             },
             {
                 "name": "DisabledGroups",
@@ -161,6 +181,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    type: \"full\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
             },
             {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Large header Title',\r\n    size: 'lg',\r\n  },\r\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -174,31 +204,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DividerComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  component: HeaderComponent,\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -218,7 +228,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n  },\r\n  args: {onClick: fn() },\r\n}"
+                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  },\r\n  args: {onClick: fn() },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DividerComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<HeaderComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  tags: ['autodocs'],\r\n  component: HeaderComponent,\r\n}"
             },
             {
                 "name": "Muted",
@@ -228,7 +258,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text muted>Muted helper text</cc-text>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    muted: true,\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">Muted helper text</cc-text>`,\r\n  }),\r\n}"
             },
             {
                 "name": "preview",
@@ -248,7 +278,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-button variant=\"primary\">Primary Button</cc-button>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Button</cc-button>`,\r\n  }),\r\n}"
+            },
+            {
+                "name": "PrimaryDisabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Disabled Button</cc-button>`,\r\n  }),\r\n}"
+            },
+            {
+                "name": "RightAligned",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"right\">Right aligned text</cc-text>`,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Small header Title',\r\n    size: 'sm',\r\n  },\r\n}"
             },
             {
                 "name": "WithRouterLinks",
@@ -269,28 +329,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PopupComponent>",
                 "file": "projects/common-components/src/lib/complex/popup.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<DividerComponent>",
-                "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/common-components/src/lib/essential/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -324,6 +362,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DividerComponent>",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HeaderComponent>",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -426,6 +486,58 @@
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"item\" label=\"Home\" routerLink=\"/home\" />\r\n        <cc-taskbar-item type=\"item\" label=\"Admin\" routerLink=\"/admin\" />\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
+            "projects/common-components/src/lib/essential/text.stories.ts": [
+                {
+                    "name": "Centered",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"center\">Centered text</cc-text>`,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    muted: false,\r\n    align: 'left',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\" [align]=\"align\">Regular text</cc-text>`,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextComponent>",
+                    "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Muted",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    muted: true,\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">Muted helper text</cc-text>`,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "RightAligned",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"right\">Right aligned text</cc-text>`,\r\n  }),\r\n}"
+                }
+            ],
             "projects/common-components/src/lib/layout/layout.stories.ts": [
                 {
                     "name": "Centered",
@@ -456,82 +568,6 @@
                     "deprecationMessage": "",
                     "type": "StoryObj<LayoutComponent>",
                     "defaultValue": "{\r\n  args: {\r\n    type: \"full\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
-                }
-            ],
-            "projects/common-components/src/lib/essential/divider.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DividerComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
-                }
-            ],
-            "projects/common-components/src/lib/essential/header.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Header Title',\r\n  },\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  component: HeaderComponent,\r\n}"
-                }
-            ],
-            "projects/common-components/src/lib/essential/text.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">Regular text</cc-text>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n  },\r\n}"
-                },
-                {
-                    "name": "Muted",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text muted>Muted helper text</cc-text>`,\r\n  }),\r\n}"
                 }
             ],
             "projects/common-components/src/lib/flex/column.stories.ts": [
@@ -567,7 +603,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\">Button</cc-button>`,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Button</cc-button>`,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Disabled</cc-button>`,\r\n  }),\r\n}"
                 },
                 {
                     "name": "meta",
@@ -577,7 +623,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n  },\r\n  args: {onClick: fn() },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  },\r\n  args: {onClick: fn() },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -587,7 +633,81 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-button variant=\"primary\">Primary Button</cc-button>`,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Button</cc-button>`,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "PrimaryDisabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Disabled Button</cc-button>`,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DividerComponent>",
+                    "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
+                }
+            ],
+            "projects/common-components/src/lib/essential/header/header.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Header Title',\r\n    size: 'md',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Large header Title',\r\n    size: 'lg',\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HeaderComponent>",
+                    "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  tags: ['autodocs'],\r\n  component: HeaderComponent,\r\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Small header Title',\r\n    size: 'sm',\r\n  },\r\n}"
                 }
             ],
             "projects/common-components/.storybook/preview.ts": [
@@ -613,32 +733,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PopupComponent>",
                     "file": "projects/common-components/src/lib/complex/popup.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/common-components/src/lib/essential/divider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DividerComponent>",
-                    "file": "projects/common-components/src/lib/essential/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "projects/common-components/src/lib/essential/header.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<HeaderComponent>",
-                    "file": "projects/common-components/src/lib/essential/header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -678,6 +772,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DividerComponent>",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/header/header.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderComponent>",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -770,6 +890,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -787,6 +917,16 @@
             },
             {
                 "filePath": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PrimaryDisabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -796,7 +936,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/divider.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -806,7 +946,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/divider.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -816,7 +956,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/divider.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -826,7 +966,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/header.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -836,7 +976,17 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/header.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -846,11 +996,31 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/common-components/src/lib/essential/header.stories.ts",
+                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
                 "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Centered",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -881,6 +1051,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Muted",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RightAligned",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

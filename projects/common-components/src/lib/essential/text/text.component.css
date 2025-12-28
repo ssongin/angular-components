@@ -1,0 +1,20 @@
+p {
+  margin: 0;
+  font-size: 14px;
+}
+
+p.muted {
+  color: #6b7280;
+}
+
+p.align-left {
+  text-align: left;
+}
+
+p.align-center {
+  text-align: center;
+}
+
+p.align-right {
+  text-align: right;
+}

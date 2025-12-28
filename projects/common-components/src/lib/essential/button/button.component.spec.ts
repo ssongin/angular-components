@@ -46,7 +46,7 @@ describe('ButtonComponent', () => {
   });
 
   it('should emit click event when clicked', () => {
-    const spy = vi.spyOn(component.onClick, 'emit');
+    const spy = vi.spyOn(component.clicked, 'emit');
 
     const button = nativeElement.querySelector('button')!;
     button.click();
@@ -55,7 +55,7 @@ describe('ButtonComponent', () => {
   });
 
   it('should NOT emit click event when disabled', () => {
-    const spy = vi.spyOn(component.onClick, 'emit');
+    const spy = vi.spyOn(component.clicked, 'emit');
 
     component.disabled = true;
     fixture.detectChanges();
