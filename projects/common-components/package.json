@@ -4,6 +4,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "style": "styles/tokens.css",
   "peerDependencies": {
     "@angular/common": "^21.0.0",
     "@angular/core": "^21.0.0"

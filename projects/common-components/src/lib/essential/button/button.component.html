@@ -1,6 +1,8 @@
-<button [attr.type]="type"
-        [disabled]="disabled"
-        [class.primary]="variant === 'primary'"
-        (click)="handleClick($event)">
-  <ng-content/>
+<button
+  [attr.type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  (click)="handleClick($event)"
+>
+  <ng-content />
 </button>

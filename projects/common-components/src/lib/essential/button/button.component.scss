@@ -1,0 +1,161 @@
+@use 'sass:map';
+
+$padding: (
+  sm: 4px 10px,
+  md: 8px 16px,
+  lg: 12px 20px,
+);
+
+$font-size: (
+  sm: 12px,
+  md: 14px,
+  lg: 16px,
+);
+
+/* fallbacks (solid values only) */
+:host {
+  display: inline-block;
+  --cc-btn-focus-ring: #e6eefc;
+}
+
+/* inner button base */
+button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border-radius: var(--cc-radius);
+  border: var(--cc-button-border, 1px) solid var(--cc-color-border);
+  background: var(--cc-color-bg);
+  color: var(--cc-color-text);
+
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.04s ease;
+}
+
+/* focus/active */
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--cc-btn-focus-ring);
+}
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* sizes */
+@each $size, $pad in $padding {
+  :host(.cc-button--#{$size}) button {
+    padding: $pad;
+    font-size: map.get($font-size, $size);
+  }
+}
+
+/* DEFAULT: filled appearance using solid tokens */
+:host(.cc-button--default) button {
+  background: var(--cc-default-bg);
+  border-color: var(--cc-color-border);
+  color: var(--cc-color-text);
+
+  &:hover:not(:disabled) {
+    background: var(--cc-default-hover-solid);
+    border-color: var(--cc-color-border);
+  }
+  &:active:not(:disabled) {
+    background: var(--cc-default-active-solid);
+  }
+}
+
+/* OUTLINE: distinct — base matches page bg, visible border; hover uses solid hover */
+:host(.cc-button--outline) button {
+  background: var(--cc-outline-bg);
+  border-color: var(--cc-color-border);
+  color: var(--cc-color-text);
+
+  &:hover:not(:disabled) {
+    background: var(--cc-outline-hover-solid);
+    border-color: var(--cc-color-border);
+  }
+  &:active:not(:disabled) {
+    background: var(--cc-outline-active-solid);
+  }
+}
+
+/* PRIMARY: filled */
+:host(.cc-button--primary) button {
+  background: var(--cc-primary);
+  border-color: var(--cc-primary);
+  color: var(--cc-primary-foreground);
+
+  &:hover:not(:disabled) {
+    background: var(--cc-primary-hover);
+  }
+  &:active:not(:disabled) {
+    background: var(--cc-primary-active);
+  }
+}
+
+/* WARN: outline emphasis but solid hover/active */
+:host(.cc-button--warn) button {
+  background: var(--cc-color-bg);
+  border-color: var(--cc-warn);
+  color: var(--cc-warn);
+
+  &:hover:not(:disabled) {
+    background: var(--cc-warn-hover-solid);
+    border-color: var(--cc-warn);
+  }
+  &:active:not(:disabled) {
+    background: var(--cc-warn-active-solid);
+  }
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--cc-warn);
+  }
+}
+
+/* CRITICAL: outline emphasis but solid hover/active */
+:host(.cc-button--critical) button {
+  background: var(--cc-color-bg);
+  border-color: var(--cc-critical);
+  color: var(--cc-critical);
+
+  &:hover:not(:disabled) {
+    background: var(--cc-critical-hover-solid);
+    border-color: var(--cc-critical);
+  }
+  &:active:not(:disabled) {
+    background: var(--cc-critical-active-solid);
+  }
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--cc-critical);
+  }
+}
+
+/* LINK: text-only */
+:host(.cc-button--link) button {
+  background: rgba(0, 0, 0, var(--cc-transparency-0));
+  border: none;
+  padding: 6px;
+
+  color: var(--cc-primary);
+  &:not(:disabled) {
+    text-decoration: underline;
+  }
+}
+
+/* DISABLED: use solid disabled tokens (no opacity) */
+:host(.is-disabled), :host(.cc-button--disabled) button {
+  pointer-events: none;
+  cursor: not-allowed;
+  background: var(--cc-disabled-bg);
+  color: var(--cc-disabled-text);
+  border-color: var(--cc-color-border);
+}

@@ -4,6 +4,7 @@ import { ButtonComponent } from '../../essential/button/button.component';
 import { TextComponent } from '../../essential/text/text.component';
 import { DividerComponent } from '../../essential/divider/divider.component';
 import { HeaderComponent } from '../../essential/header/header.component';
+import { LayoutComponent } from '../../layout/layout.component';
 
 interface StoryArgs { visible?: boolean; title?: string }
 
@@ -27,7 +28,7 @@ export const Confirmation: Story = {
     props: args,
     // provide imports to Storybook wrapper via moduleMetadata
     moduleMetadata: {
-      imports: [PopupComponent, ButtonComponent, TextComponent, DividerComponent, HeaderComponent],
+      imports: [PopupComponent, ButtonComponent, TextComponent, DividerComponent, HeaderComponent, LayoutComponent],
     },
     template: `
       <cc-popup [visible]="visible" [title]="title">
@@ -75,7 +76,9 @@ export const AboutPopup: Story = {
       imports: [PopupComponent, ButtonComponent, TextComponent, DividerComponent, HeaderComponent],
     },
     template: `
-      <button (click)="visible = true">Open</button>
+      <cc-layout [type]="centered">
+        <cc-button (click)="visible = true" variant="critical">Open</cc-button>
+      </cc-layout>
       <cc-popup [visible]="visible" [title]="title">
         <div popup-content>
           <cc-text>
