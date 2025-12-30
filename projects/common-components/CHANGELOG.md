@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: Add button group component
+
 ## 0.3.0
 
 ### Minor Changes
