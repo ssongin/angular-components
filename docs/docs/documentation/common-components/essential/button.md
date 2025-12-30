@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Button component
+# Button
 
 ## Description
 
@@ -35,6 +35,8 @@ import { ButtonComponent } from '@ssongin/common-components';
 | `size`       | `'sm' \| 'md' \| 'lg'`                                                  | `'md'`      | Button size                          |
 | `disabled`   | `boolean`                                                               | `false`     | Disables the button and click events |
 | `aria-label` | `string`                                                                | —           | Accessibility label                  |
+
+### Outputs
 
 | Output    | Payload | Description                                                    |
 | --------- | ------- | -------------------------------------------------------------- |
