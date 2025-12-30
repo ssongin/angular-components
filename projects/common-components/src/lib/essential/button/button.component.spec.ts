@@ -5,7 +5,8 @@ import { vi } from 'vitest';
 describe('ButtonComponent', () => {
   let fixture: ComponentFixture<ButtonComponent>;
   let component: ButtonComponent;
-  let nativeElement: HTMLElement;
+  let host: HTMLElement;
+  let button: HTMLButtonElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,63 +15,79 @@ describe('ButtonComponent', () => {
 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
-    nativeElement = fixture.nativeElement;
+    host = fixture.nativeElement;
+
+    fixture.detectChanges(); // ✅ initial render
+
+    button = host.querySelector('button')!;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should apply type attribute', () => {
-    component.type = 'submit';
-    fixture.detectChanges();
-
-    const button = nativeElement.querySelector('button')!;
-    expect(button.getAttribute('type')).toBe('submit');
+  it('should apply base host class', () => {
+    expect(host.classList.contains('cc-button')).toBe(true);
   });
 
-  it('should apply primary class when variant is primary', () => {
-    component.variant = 'primary';
+  it('should apply type attribute', () => {
+    fixture.componentRef.setInput('type', 'submit');
     fixture.detectChanges();
 
-    const button = nativeElement.querySelector('button')!;
-    expect(button.classList.contains('primary')).toBe(true);
+    expect(button.type).toBe('submit');
+  });
+
+  it('should apply variant class on host', () => {
+    fixture.componentRef.setInput('variant', 'primary');
+    fixture.detectChanges();
+
+    expect(host.classList.contains('cc-button--primary')).toBe(true);
+  });
+
+  it('should apply size class on host', () => {
+    fixture.componentRef.setInput('size', 'lg');
+    fixture.detectChanges();
+
+    expect(host.classList.contains('cc-button--lg')).toBe(true);
   });
 
   it('should not apply primary class when variant is default', () => {
-    component.variant = 'default';
+    fixture.componentRef.setInput('variant', 'default');
     fixture.detectChanges();
 
-    const button = nativeElement.querySelector('button')!;
-    expect(button.classList.contains('primary')).toBe(false);
+    expect(host.classList.contains('cc-button--primary')).toBe(false);
   });
 
   it('should emit click event when clicked', () => {
     const spy = vi.spyOn(component.clicked, 'emit');
 
-    const button = nativeElement.querySelector('button')!;
     button.click();
 
-    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('should NOT emit click event when disabled', () => {
     const spy = vi.spyOn(component.clicked, 'emit');
 
-    component.disabled = true;
+    fixture.componentRef.setInput('disabled', true);
     fixture.detectChanges();
 
-    const button = nativeElement.querySelector('button')!;
     button.click();
 
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('should set disabled attribute when disabled is true', () => {
-    component.disabled = true;
+  it('should set disabled attribute on button when disabled', () => {
+    fixture.componentRef.setInput('disabled', true);
     fixture.detectChanges();
 
-    const button = nativeElement.querySelector('button')!;
     expect(button.disabled).toBe(true);
+  });
+
+  it('should apply is-disabled class on host when disabled', () => {
+    fixture.componentRef.setInput('disabled', true);
+    fixture.detectChanges();
+
+    expect(host.classList.contains('is-disabled')).toBe(true);
   });
 });

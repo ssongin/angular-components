@@ -57,6 +57,16 @@
                 "defaultValue": "{\r\n  args: { visible: false, title: 'About' },\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: {\r\n      imports: [PopupComponent, ButtonComponent, TextComponent, DividerComponent, HeaderComponent],\r\n    },\r\n    template: `\r\n      <button (click)=\"visible = true\">Open</button>\r\n      <cc-popup [visible]=\"visible\" [title]=\"title\">\r\n        <div popup-content>\r\n          <cc-text>\r\n            This application is a lightweight UI component library\r\n            built with modern Angular standalone components.\r\n          </cc-text>\r\n          <cc-text muted>Version 0.1.0</cc-text>\r\n        </div>\r\n        <div popup-controls>\r\n          <cc-button (click)=\"visible = false\" variant=\"primary\">Close</cc-button>\r\n        </div>\r\n      </cc-popup>\r\n    `,\r\n  }),\r\n  play: async ({ canvas, userEvent }) => {\r\n    await userEvent.click(canvas.getByText('Open'));\r\n    await userEvent.click(canvas.getByText('Close'));\r\n  },\r\n}"
             },
             {
+                "name": "AriaLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 5px\">\r\n        <cc-button variant=\"primary\" aria-label=\"Save changes\">\r\n          💾\r\n        </cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -130,16 +140,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Button</cc-button>`,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -174,7 +174,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Disabled</cc-button>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; flex-wrap: wrap; padding: 5px\">\r\n        <cc-button disabled>Default</cc-button>\r\n        <cc-button variant=\"primary\" disabled>Primary</cc-button>\r\n        <cc-button variant=\"outline\" disabled>Outline</cc-button>\r\n        <cc-button variant=\"link\" disabled>Link</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "DisabledGroups",
@@ -215,6 +215,16 @@
                 "deprecationMessage": "",
                 "type": "StoryObj<LayoutComponent>",
                 "defaultValue": "{\r\n  args: {\r\n    type: \"full\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
+            },
+            {
+                "name": "globalTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  theme: {\n    name: 'Theme',\n    defaultValue: 'light',\n    toolbar: { icon: 'circlehollow', items: ['light', 'dark'] },\n  },\n}"
             },
             {
                 "name": "Large",
@@ -264,7 +274,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  },\r\n  args: {clicked: fn() },\r\n}"
+                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -307,6 +317,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    muted: true,\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
             },
             {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"padding: 5px\">\r\n        <cc-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [type]=\"type\"\r\n          [disabled]=\"disabled\"\r\n          [attr.aria-label]=\"ariaLabel\"\r\n          (clicked)=\"clicked($event)\"\r\n        >\r\n          Button\r\n        </cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -314,27 +334,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Button</cc-button>`,\r\n  }),\r\n}"
-            },
-            {
-                "name": "PrimaryDisabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Disabled Button</cc-button>`,\r\n  }),\r\n}"
+                "defaultValue": "{\n  // wrap the story by merging the story output instead of using <story /> element\n  decorators: [\n    (story, context) => {\n      const storyResult = story();\n      return {\n        ...storyResult,\n        template: `<div [attr.data-theme]=\"theme\" style=\"height:100%; background-color: var(--cc-body-bg)\">${storyResult.template || ''}</div>`,\n        props: { ...(storyResult.props || {}), theme: context.globals?.['theme'] },\n        // preserve moduleMetadata / standalone imports if provided by the story\n        moduleMetadata: { ...(storyResult.moduleMetadata || {}) },\n      };\n    },\n  ],\n  parameters: {\n    layout: 'fullscreen',\n    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },\n  },\n}"
             },
             {
                 "name": "RightAligned",
@@ -347,6 +347,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"right\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
             },
             {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; align-items: center; padding: 5px\">\r\n        <cc-button size=\"sm\">Small</cc-button>\r\n        <cc-button size=\"md\">Medium</cc-button>\r\n        <cc-button size=\"lg\">Large</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -355,6 +365,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    label: 'Small header Title',\r\n    size: 'sm',\r\n  },\r\n}"
+            },
+            {
+                "name": "Themes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: grid; gap: 5px\">\r\n        <div style=\"padding: 5px; background: #e0e4ecff\">\r\n          <cc-button [variant]=\"variant\" [disabled]=\"disabled\" [size]=\"size\">Light theme</cc-button>\r\n        </div>\r\n        <div data-theme=\"dark\" style=\"padding: 5px; background: #111827\">\r\n          <cc-button [variant]=\"variant\" [disabled]=\"disabled\" [size]=\"size\">Dark theme</cc-button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Variants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; flex-wrap: wrap; padding: 5px\">\r\n        <cc-button variant=\"default\">Default</cc-button>\r\n        <cc-button variant=\"outline\">Outline</cc-button>\r\n        <cc-button variant=\"primary\">Primary</cc-button>\r\n        <cc-button variant=\"warn\">Warn</cc-button>\r\n        <cc-button variant=\"critical\">Critical</cc-button>\r\n        <cc-button variant=\"link\">Link</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "WithRouterLinks",
@@ -478,6 +508,78 @@
                     "deprecationMessage": "",
                     "type": "Meta<StoryArgs>",
                     "defaultValue": "{\r\n  title: 'UI/Popup',\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n  },\r\n  argTypes: {\r\n    visible: { control: 'boolean' },\r\n    title: { control: 'text' },\r\n  },\r\n}"
+                }
+            ],
+            "projects/common-components/src/lib/essential/button/button.stories.ts": [
+                {
+                    "name": "AriaLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 5px\">\r\n        <cc-button variant=\"primary\" aria-label=\"Save changes\">\r\n          💾\r\n        </cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; flex-wrap: wrap; padding: 5px\">\r\n        <cc-button disabled>Default</cc-button>\r\n        <cc-button variant=\"primary\" disabled>Primary</cc-button>\r\n        <cc-button variant=\"outline\" disabled>Outline</cc-button>\r\n        <cc-button variant=\"link\" disabled>Link</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"padding: 5px\">\r\n        <cc-button\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [type]=\"type\"\r\n          [disabled]=\"disabled\"\r\n          [attr.aria-label]=\"ariaLabel\"\r\n          (clicked)=\"clicked($event)\"\r\n        >\r\n          Button\r\n        </cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; align-items: center; padding: 5px\">\r\n        <cc-button size=\"sm\">Small</cc-button>\r\n        <cc-button size=\"md\">Medium</cc-button>\r\n        <cc-button size=\"lg\">Large</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Themes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: grid; gap: 5px\">\r\n        <div style=\"padding: 5px; background: #e0e4ecff\">\r\n          <cc-button [variant]=\"variant\" [disabled]=\"disabled\" [size]=\"size\">Light theme</cc-button>\r\n        </div>\r\n        <div data-theme=\"dark\" style=\"padding: 5px; background: #111827\">\r\n          <cc-button [variant]=\"variant\" [disabled]=\"disabled\" [size]=\"size\">Dark theme</cc-button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Variants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; flex-wrap: wrap; padding: 5px\">\r\n        <cc-button variant=\"default\">Default</cc-button>\r\n        <cc-button variant=\"outline\">Outline</cc-button>\r\n        <cc-button variant=\"primary\">Primary</cc-button>\r\n        <cc-button variant=\"warn\">Warn</cc-button>\r\n        <cc-button variant=\"critical\">Critical</cc-button>\r\n        <cc-button variant=\"link\">Link</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/common-components/src/lib/taskbar/taskbar.stories.ts": [
@@ -650,58 +752,6 @@
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-row gap=\"16px\">\r\n        <div style=\"background:#ccc\">A</div>\r\n        <div style=\"background:#bbb\">B</div>\r\n        <div style=\"background:#aaa\">C</div>\r\n      </cc-row>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
-            "projects/common-components/src/lib/essential/button/button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Button</cc-button>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    variant: 'default',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Disabled</cc-button>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'radio',\r\n      options: ['default', 'primary'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  },\r\n  args: {clicked: fn() },\r\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: false\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Button</cc-button>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "PrimaryDisabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    disabled: true\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-button [variant]=\"variant\" [disabled]=\"disabled\">Primary Disabled Button</cc-button>`,\r\n  }),\r\n}"
-                }
-            ],
             "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
                 {
                     "name": "Default",
@@ -768,6 +818,16 @@
             ],
             "projects/common-components/.storybook/preview.ts": [
                 {
+                    "name": "globalTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  theme: {\n    name: 'Theme',\n    defaultValue: 'light',\n    toolbar: { icon: 'circlehollow', items: ['light', 'dark'] },\n  },\n}"
+                },
+                {
                     "name": "preview",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -775,7 +835,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n       color: /(background|color)$/i,\n       date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  // wrap the story by merging the story output instead of using <story /> element\n  decorators: [\n    (story, context) => {\n      const storyResult = story();\n      return {\n        ...storyResult,\n        template: `<div [attr.data-theme]=\"theme\" style=\"height:100%; background-color: var(--cc-body-bg)\">${storyResult.template || ''}</div>`,\n        props: { ...(storyResult.props || {}), theme: context.globals?.['theme'] },\n        // preserve moduleMetadata / standalone imports if provided by the story\n        moduleMetadata: { ...(storyResult.moduleMetadata || {}) },\n      };\n    },\n  ],\n  parameters: {\n    layout: 'fullscreen',\n    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },\n  },\n}"
                 }
             ]
         },
@@ -876,6 +936,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "globalTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "preview",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -945,7 +1015,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
+                "name": "AriaLabel",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -975,7 +1045,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Playground",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -985,7 +1055,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "PrimaryDisabled",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Themes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Variants",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
