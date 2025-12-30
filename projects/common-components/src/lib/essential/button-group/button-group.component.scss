@@ -1,0 +1,51 @@
+:host {
+  display: inline-flex;
+  align-items: stretch; 
+}
+
+:host(.cc-button-group--horizontal) {
+  flex-direction: row;
+}
+
+:host(.cc-button-group--horizontal) ::ng-deep > cc-button {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+:host(.cc-button-group--horizontal) ::ng-deep > cc-button button {
+  border-radius: 0;
+  width: 100%;
+}
+
+:host(.cc-button-group--horizontal) ::ng-deep > cc-button:first-child button {
+  border-top-left-radius: var(--cc-radius);
+  border-bottom-left-radius: var(--cc-radius);
+}
+:host(.cc-button-group--horizontal) ::ng-deep > cc-button:last-child button {
+  border-top-right-radius: var(--cc-radius);
+  border-bottom-right-radius: var(--cc-radius);
+}
+
+/* VERTICAL */
+:host(.cc-button-group--vertical) {
+  flex-direction: column;
+}
+
+:host(.cc-button-group--vertical) ::ng-deep > cc-button {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+:host(.cc-button-group--vertical) ::ng-deep > cc-button button {
+  border-radius: 0;
+  width: 100%;
+}
+
+:host(.cc-button-group--vertical) ::ng-deep > cc-button:first-child button {
+  border-top-left-radius: var(--cc-radius);
+  border-top-right-radius: var(--cc-radius);
+}
+:host(.cc-button-group--vertical) ::ng-deep > cc-button:last-child button {
+  border-bottom-left-radius: var(--cc-radius);
+  border-bottom-right-radius: var(--cc-radius);
+}
