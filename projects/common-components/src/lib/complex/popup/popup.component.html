@@ -1,7 +1,7 @@
 @if (visible) {
   <div class="overlay" [class.visible]="visible" role="dialog" aria-modal="true" [attr.aria-hidden]="!visible">
     <div class="window">
-      <cc-header [label]="title"></cc-header>
+      <cc-header>{{title}}</cc-header>
       <cc-divider></cc-divider>
 
       <div class="content">

@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+.cc-header {
+  margin: 0;
+  font-weight: var(--cc-font-weight-heading);
+  color: var(--cc-color-text);
+}
+
+$header-sizes: (
+  xxlg: (
+    size: var(--cc-heading-xxlg-size),
+    line: var(--cc-heading-xxlg-line),
+  ),
+  xlg: (
+    size: var(--cc-heading-xlg-size),
+    line: var(--cc-heading-xlg-line),
+  ),
+  lg: (
+    size: var(--cc-heading-lg-size),
+    line: var(--cc-heading-lg-line),
+  ),
+  md: (
+    size: var(--cc-heading-md-size),
+    line: var(--cc-heading-md-line),
+  ),
+  sm: (
+    size: var(--cc-heading-sm-size),
+    line: var(--cc-heading-sm-line),
+  ),
+  xsm: (
+    size: var(--cc-heading-xsm-size),
+    line: var(--cc-heading-xsm-line),
+  )
+);
+
+@each $name, $values in $header-sizes {
+  .#{$name} {
+    font-size: map.get($values, size);
+    line-height: map.get($values, line);
+  }
+}

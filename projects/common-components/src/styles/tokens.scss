@@ -54,4 +54,25 @@
   /* disabled (solid) */
   --cc-disabled-bg: var(--cc-neutral-200);
   --cc-disabled-text: var(--cc-neutral-500);
+
+    /* headings */
+  --cc-font-weight-heading: 600;
+
+  --cc-heading-xxlg-size: 40px;
+  --cc-heading-xxlg-line: 1.2;
+
+  --cc-heading-xlg-size: 32px;
+  --cc-heading-xlg-line: 1.25;
+
+  --cc-heading-lg-size: 24px;
+  --cc-heading-lg-line: 1.3;
+
+  --cc-heading-md-size: 18px;
+  --cc-heading-md-line: 1.35;
+
+  --cc-heading-sm-size: 14px;
+  --cc-heading-sm-line: 1.4;
+
+  --cc-heading-xsm-size: 12px;
+  --cc-heading-xsm-line: 1.45;
 }
