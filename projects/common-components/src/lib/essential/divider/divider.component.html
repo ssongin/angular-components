@@ -1,0 +1,20 @@
+<div
+  class="cc-divider"
+  [class.horizontal]="orientation() === 'horizontal'"
+  [class.vertical]="orientation() === 'vertical'"
+  [class.inset]="inset()"
+  [class.dashed]="dashed()"
+  [class.align-start]="align() === 'start'"
+  [class.align-center]="align() === 'center'"
+  [class.align-end]="align() === 'end'"
+>
+  @if (orientation() === 'horizontal') {
+    <span class="line"></span>
+    <span class="content">
+      <ng-content />
+    </span>
+    <span class="line"></span>
+  } @else {
+    <span class="line"></span>
+  }
+</div>

@@ -140,21 +140,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button-group/button-group.stories.ts",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\" orientation=\"vertical\">\r\n        <cc-button>Prev</cc-button>\r\n\t\t\t\t<cc-button variant=\"critical\">Mid</cc-button>\r\n        <cc-button variant=\"warn\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"padding: 2rem\">\r\n        <cc-divider\r\n          [orientation]=\"orientation\"\r\n          [align]=\"align\"\r\n          [inset]=\"inset\"\r\n          [dashed]=\"dashed\"\r\n        >\r\n          OR\r\n        </cc-divider>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "file": "projects/common-components/src/lib/essential/button-group/button-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\">\r\n        <cc-button>Previous</cc-button>\r\n        <cc-button variant=\"primary\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -290,11 +290,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
+                "type": "Meta<DividerComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    orientation: {\r\n      control: 'radio',\r\n      options: ['horizontal', 'vertical'],\r\n    },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['start', 'center', 'end'],\r\n    },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -310,21 +310,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DividerComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
                 "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  tags: ['autodocs'],\r\n  component: HeaderComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -475,8 +475,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "rawtype": "StoryObj<DividerComponent>",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -497,8 +497,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DividerComponent>",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "rawtype": "StoryObj<HeaderComponent>",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -508,8 +508,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -813,6 +813,28 @@
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-row gap=\"16px\">\r\n        <div style=\"background:#ccc\">A</div>\r\n        <div style=\"background:#bbb\">B</div>\r\n        <div style=\"background:#aaa\">C</div>\r\n      </cc-row>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"padding: 2rem\">\r\n        <cc-divider\r\n          [orientation]=\"orientation\"\r\n          [align]=\"align\"\r\n          [inset]=\"inset\"\r\n          [dashed]=\"dashed\"\r\n        >\r\n          OR\r\n        </cc-divider>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DividerComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    orientation: {\r\n      control: 'radio',\r\n      options: ['horizontal', 'vertical'],\r\n    },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['start', 'center', 'end'],\r\n    },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
+                }
+            ],
             "projects/common-components/src/lib/essential/button-group/button-group.stories.ts": [
                 {
                     "name": "Default",
@@ -822,7 +844,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\" orientation=\"vertical\">\r\n        <cc-button>Prev</cc-button>\r\n\t\t\t\t<cc-button variant=\"critical\">Mid</cc-button>\r\n        <cc-button variant=\"warn\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\">\r\n        <cc-button>Previous</cc-button>\r\n        <cc-button variant=\"primary\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "LabelledBy",
@@ -863,28 +885,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Actions\">\r\n        <cc-button>Save</cc-button>\r\n        <cc-button disabled>Delete</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
-                }
-            ],
-            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DividerComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  component: DividerComponent,\r\n}"
                 }
             ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
@@ -981,13 +981,13 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/button/button.stories.ts": [
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                    "rawtype": "StoryObj<DividerComponent>",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1007,19 +1007,6 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DividerComponent>",
-                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
                 {
                     "name": "Story",
@@ -1027,6 +1014,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderComponent>",
                     "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

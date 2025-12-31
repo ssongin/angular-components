@@ -1,0 +1,78 @@
+:host {
+  display: block;
+}
+
+/* Base */
+.cc-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--cc-divider-text, #6b7280);
+
+  &.horizontal {
+    gap: 0;
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background-color: var(--cc-divider-color, #e5e7eb);
+    }
+  }
+
+  &.horizontal:has(.content:not(:empty)) {
+    gap: 0.75rem; // only add gap if content exists
+  }
+  &.vertical {
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+
+    .line {
+      width: 1px;
+      flex: 1;
+      background-color: var(--cc-divider-color, #e5e7eb);
+    }
+  }
+
+  /* Content */
+  .content {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Alignment */
+  &.align-start {
+    .line:first-child {
+      max-width: 10%;
+    }
+  }
+
+  &.align-end {
+    .line:last-child {
+      max-width: 10%;
+    }
+  }
+
+  /* Inset */
+  &.inset {
+    padding-inline: 1rem;
+  }
+
+  /* Dashed */
+  &.dashed {
+    &.horizontal {
+      .line {
+        background: none;
+        border-top: 1px dashed var(--cc-divider-color, #e5e7eb);
+      }
+    }
+
+    &.vertical {
+      .line {
+        background: none;
+        border-left: 1px dashed var(--cc-divider-color, #e5e7eb);
+      }
+    }
+  }
+}
