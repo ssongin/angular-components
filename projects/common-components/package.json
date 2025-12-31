@@ -1,6 +1,6 @@
 {
   "name": "@ssongin/common-components",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.4.2
+
+### Patch Changes
+
+- refactor: Improve header component
+
 ## 0.4.1
 
 ### Patch Changes
