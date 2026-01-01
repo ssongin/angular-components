@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { TextComponent } from './text.component';
 
 const loremIpsum = `
@@ -13,51 +13,93 @@ Aliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum
 Vestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. 
 `
 
-const meta: Meta<TextComponent> = {
+interface TextStoryArgs {
+  element: 'p' | 'span' | 'div';
+  size: 'sm' | 'md' | 'lg';
+  align: 'left' | 'center' | 'right';
+  muted: boolean;
+  text: string;
+}
+
+const meta: Meta<TextStoryArgs> = {
   title: 'Essential/Text',
   component: TextComponent,
   tags: ['autodocs'],
   argTypes: {
+    element: { control: 'select', options: ['p', 'span', 'div'] },
+    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    align: { control: 'select', options: ['left', 'center', 'right'] },
     muted: { control: 'boolean' },
-    align: {
-      control: 'radio',
-      options: ['left', 'center', 'right'],
-    },
+  },
+  args: {
+    element: 'p',
+    size: 'md',
+    align: 'left',
+    muted: false,
+    text: 'The quick brown fox jumps over the lazy dog',
   },
 };
 
 export default meta;
-type Story = StoryObj<TextComponent>;
+type Story = StoryObj<TextStoryArgs>;
 
-export const Default: Story = {
-  args: {
-    muted: false,
-    align: 'left',
-  },
+export const Playground: Story = {
   render: (args) => ({
     props: args,
-    template: `<cc-text [muted]="muted" [align]="align">${loremIpsum}</cc-text>`,
+    template: `
+      <cc-text
+        [element]="element"
+        [size]="size"
+        [align]="align"
+        [muted]="muted"
+      >${loremIpsum}</cc-text>
+    `,
+  }),
+};
+
+export const Sizes: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <cc-text size="sm">Small text</cc-text>
+        <cc-text size="md">Medium text</cc-text>
+        <cc-text size="lg">Large text</cc-text>
+      </div>
+    `,
+  }),
+};
+
+export const Polymorphic: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <cc-text element="p">This is a paragraph (p)</cc-text>
+        <cc-text element="div">This is a block (div)</cc-text>
+        <cc-text element="span">This is inline (span)</cc-text>
+      </div>
+    `,
+  }),
+};
+
+export const Alignment: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <cc-text align="left">Left aligned text</cc-text>
+        <cc-text align="center">Center aligned text</cc-text>
+        <cc-text align="right">Right aligned text</cc-text>
+      </div>
+    `,
   }),
 };
 
 export const Muted: Story = {
-  args: {
-    muted: true,
-  },
-  render: (args) => ({
-    props: args,
-    template: `<cc-text [muted]="muted">${loremIpsum}</cc-text>`,
-  }),
-};
-
-export const Centered: Story = {
   render: () => ({
-    template: `<cc-text align="center">${loremIpsum}</cc-text>`,
-  }),
-};
-
-export const RightAligned: Story = {
-  render: () => ({
-    template: `<cc-text align="right">${loremIpsum}</cc-text>`,
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <cc-text>Default text</cc-text>
+        <cc-text muted>Muted text</cc-text>
+      </div>
+    `,
   }),
 };
