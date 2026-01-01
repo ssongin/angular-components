@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.4.3
+
+### Patch Changes
+
+- refactor: Improve text component
+
 ## 0.4.2
 
 ### Patch Changes
