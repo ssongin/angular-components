@@ -33,8 +33,6 @@ import { HeaderComponent  } from '@ssongin/common-components';
 | `size`  | `'xxlg' \| 'xlg' \| 'lg' \| 'md' \| 'sm' \| 'xsm'` | `'md'`      | Visual size of the header. Maps to semantic heading levels if `level` is not specified.                      |
 | `level` | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                       | `undefined` | Optional accessibility override to force a specific heading level (`h1`–`h6`). Takes precedence over `size`. |
 
-
-
 ## Notes
 
 - The component chooses semantic heading tags (h1–h6) automatically based on size unless level is provided.

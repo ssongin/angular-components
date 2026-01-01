@@ -38,7 +38,6 @@ import { DividerComponent } from '@ssongin/common-components';
 | `dashed`      | `boolean`                      | `false`        | Whether the divider line is dashed                                         |
 | `inset`       | `boolean`                      | `false`        | Adds horizontal padding to the divider line                                |
 
-
 ## Notes
 
 - **Horizontal dividers** can optionally display content in the middle. If no content is provided, a single continuous line is displayed.

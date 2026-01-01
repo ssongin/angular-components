@@ -1,0 +1,31 @@
+p, div, span {
+  margin: 0;
+  color: var(--cc-text-color-default);
+}
+
+p.align-left, div.align-left, span.align-left {
+  text-align: left;
+}
+p.align-center, div.align-center, span.align-center {
+  text-align: center;
+}
+p.align-right, div.align-right, span.align-right {
+  text-align: right;
+}
+
+p.size-sm, div.size-sm, span.size-sm {
+  font-size: var(--cc-text-sm-size);
+  line-height: var(--cc-text-sm-line);
+}
+p.size-md, div.size-md, span.size-md {
+  font-size: var(--cc-text-md-size);
+  line-height: var(--cc-text-md-line);
+}
+p.size-lg, div.size-lg, span.size-lg {
+  font-size: var(--cc-text-lg-size);
+  line-height: var(--cc-text-lg-line);
+}
+
+p.muted, div.muted, span.muted {
+  color: var(--cc-text-color-muted);
+}

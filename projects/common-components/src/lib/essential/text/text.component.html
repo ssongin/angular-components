@@ -1,0 +1,19 @@
+<ng-template #content>
+  <ng-content />
+</ng-template>
+
+@if (element === 'p') {
+  <p [ngClass]="classes">
+    <ng-container *ngTemplateOutlet="content" />
+  </p>
+}
+@if (element === 'div') {
+  <div [ngClass]="classes">
+    <ng-container *ngTemplateOutlet="content" />
+  </div>
+}
+@if (element === 'span') {
+  <span [ngClass]="classes">
+    <ng-container *ngTemplateOutlet="content" />
+  </span>
+}

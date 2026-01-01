@@ -75,4 +75,18 @@
 
   --cc-heading-xsm-size: 12px;
   --cc-heading-xsm-line: 1.45;
+
+    /* === Text / Body typography === */
+  --cc-text-sm-size: 12px;
+  --cc-text-sm-line: 1.45;
+
+  --cc-text-md-size: 14px;
+  --cc-text-md-line: 1.5;
+
+  --cc-text-lg-size: 16px;
+  --cc-text-lg-line: 1.6;
+
+  /* Text colors */
+  --cc-text-color-default: var(--cc-color-text);
+  --cc-text-color-muted: var(--cc-neutral-500);
 }

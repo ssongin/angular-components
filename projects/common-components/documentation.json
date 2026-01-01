@@ -35,6 +35,63 @@
             "kind": 172,
             "methods": [],
             "extends": []
+        },
+        {
+            "name": "TextStoryArgs",
+            "id": "interface-TextStoryArgs-3030454ec884d5f422868e896c266509303eb04feaaaf6dda0123ab337a94c2683950914f57576615afe22c9bd0293443b05fadc22af62a7ae57bcb081495db9",
+            "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { TextComponent } from './text.component';\r\n\r\n/**\r\n * Storybook args are an explicit API.\r\n * Do NOT rely on Angular input inference (broken in SB10).\r\n */\r\ninterface TextStoryArgs {\r\n  element: 'p' | 'span' | 'div';\r\n  size: 'sm' | 'md' | 'lg';\r\n  align: 'left' | 'center' | 'right';\r\n  muted: boolean;\r\n}\r\n\r\nconst meta: Meta<TextStoryArgs> = {\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<TextStoryArgs>;\r\n\r\nexport const Playground: Story = {\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Sizes: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Polymorphic: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Alignment: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Muted: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Example: Story = {\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\n\r\n",
+            "properties": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"left\" | \"center\" | \"right\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "element",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"p\" | \"span\" | \"div\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "muted",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "size",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"sm\" | \"md\" | \"lg\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "description": "<p>Storybook args are an explicit API.\nDo NOT rely on Angular input inference (broken in SB10).</p>\n",
+            "rawdescription": "\n\nStorybook args are an explicit API.\nDo NOT rely on Angular input inference (broken in SB10).\n",
+            "methods": [],
+            "extends": []
         }
     ],
     "injectables": [],
@@ -55,6 +112,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: { visible: false, title: 'About' },\r\n  render: (args) => ({\r\n    props: args,\r\n    moduleMetadata: {\r\n      imports: [PopupComponent, ButtonComponent, TextComponent, DividerComponent, HeaderComponent],\r\n    },\r\n    template: `\r\n      <cc-layout [type]=\"centered\">\r\n        <cc-button (click)=\"visible = true\" variant=\"critical\">Open</cc-button>\r\n      </cc-layout>\r\n      <cc-popup [visible]=\"visible\" [title]=\"title\">\r\n        <div popup-content>\r\n          <cc-text>\r\n            This application is a lightweight UI component library\r\n            built with modern Angular standalone components.\r\n          </cc-text>\r\n          <cc-text muted>Version 0.1.0</cc-text>\r\n        </div>\r\n        <div popup-controls>\r\n          <cc-button (click)=\"visible = false\" variant=\"primary\">Close</cc-button>\r\n        </div>\r\n      </cc-popup>\r\n    `,\r\n  }),\r\n  play: async ({ canvas, userEvent }) => {\r\n    await userEvent.click(canvas.getByText('Open'));\r\n    await userEvent.click(canvas.getByText('Close'));\r\n  },\r\n}"
+            },
+            {
+                "name": "Alignment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "AllSizes",
@@ -97,16 +164,6 @@
                 "defaultValue": "{\r\n  args: { type: 'centered' },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Centered content\r\n        </div>\r\n      </cc-layout>\r\n    `,\r\n  }),\r\n}"
             },
             {
-                "name": "Centered",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"center\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
-            },
-            {
                 "name": "Confirmation",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -125,16 +182,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"padding: 2rem;\">\r\n        <cc-divider\r\n          [orientation]=\"orientation\"\r\n          [align]=\"align\"\r\n          [inset]=\"inset\"\r\n          [dashed]=\"dashed\"/>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "DarkTheme",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div data-theme=\"dark\" style=\"background: var(--cc-body-bg); padding: 16px\">\r\n        <cc-header size=\"xxlg\">Dark mode header</cc-header>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "DashedInset",
@@ -187,16 +234,6 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\">\r\n        <cc-button>Previous</cc-button>\r\n        <cc-button variant=\"primary\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    muted: false,\r\n    align: 'left',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\" [align]=\"align\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
-            },
-            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -225,6 +262,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"item\" label=\"Enabled\" />\r\n        <cc-taskbar-item type=\"item\" label=\"Disabled\" [disabled]=\"true\" />\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "FormPopup",
@@ -277,16 +324,6 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <h3 id=\"group-title\">Zoom controls</h3>\r\n\r\n      <cc-button-group aria-labelledby=\"group-title\">\r\n        <cc-button variant=\"outline\">+</cc-button>\r\n        <cc-button variant=\"outline\">−</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
-                "name": "loremIpsum",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "unknown",
-                "defaultValue": "`\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan mi eget nisi fermentum, et faucibus lacus placerat. Donec dignissim laoreet mi ultricies pharetra. Etiam condimentum scelerisque sollicitudin. Nullam posuere sodales mi eget egestas. Quisque nec orci maximus, luctus lacus non, dignissim diam. Praesent dui eros, tempor nec magna quis, porta sollicitudin urna. Etiam vitae urna mollis, cursus ipsum ut, sagittis dolor. Pellentesque sit amet porttitor elit. Nulla lectus eros, finibus id eleifend quis, pharetra in urna. Nullam eget odio tellus. Nulla vel lorem dui. Nam consequat efficitur convallis. Fusce commodo convallis felis, ac gravida massa ullamcorper nec.\r\n\r\nPhasellus eget metus in lorem malesuada dapibus et nec leo. Praesent placerat, nisi eget mattis ultricies, ante sem laoreet purus, non rutrum erat lacus vitae tellus. Curabitur ornare auctor arcu, finibus maximus libero malesuada ac. Quisque in dignissim purus, vel ultrices lectus. Aliquam erat volutpat. Sed blandit eget sapien vitae euismod. Aenean tempor, enim vehicula convallis feugiat, enim lectus convallis lorem, sit amet semper sapien nunc non quam. Pellentesque vel tellus eget orci gravida condimentum. Sed in nisl nisi. Etiam aliquet, leo ac condimentum viverra, nisl nisi consequat ligula, et mollis erat justo at mi. Pellentesque fermentum, arcu vitae facilisis vulputate, magna libero congue quam, non vestibulum sem magna a magna. Fusce at eros euismod, ornare turpis tincidunt, condimentum augue.\r\n\r\nSed pellentesque lorem sed vestibulum dapibus. Donec sit amet consequat leo, a ornare metus. Fusce sit amet laoreet eros. Sed lorem arcu, semper ut nisi et, placerat aliquam diam. Nulla iaculis felis at magna posuere rhoncus. Donec ac ex quis lacus suscipit congue lacinia vitae odio. Sed pellentesque velit risus, et euismod erat vestibulum sit amet. In eu cursus est. Praesent sed tortor mattis, faucibus velit at, dictum enim.\r\n\r\nAliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum, nisi at euismod sodales, nunc ex vehicula dolor, quis tincidunt eros odio ac mi. Aenean suscipit commodo justo sit amet tempus. Phasellus luctus arcu vitae libero rutrum pharetra. Sed vitae iaculis lacus, sit amet mattis ipsum. Etiam vitae hendrerit elit. Quisque leo tellus, gravida non lacus a, consectetur tempor turpis. Quisque bibendum quis eros nec malesuada.\r\n\r\nVestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. \r\n`"
-            },
-            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -295,16 +332,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<TaskbarComponent>",
                 "defaultValue": "{\r\n  title: 'Navigation/Taskbar',\r\n  component: TaskbarComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule, TaskbarComponent, TaskbarItemComponent],\r\n      providers: [\r\n        {\r\n          provide: Router,\r\n          useValue: {\r\n            navigate: () => Promise.resolve(true), // stub navigate method\r\n          },\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -320,21 +347,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/button-group/button-group.stories.ts",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonGroupComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Button Group',\r\n  component: ButtonGroupComponent,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'centered',\r\n  }\r\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  args: {\r\n    variant: 'default',\r\n    size: 'md',\r\n    type: 'button',\r\n    disabled: false,\r\n    clicked: fn(),\r\n  },\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: [\r\n        'default',\r\n        'outline',\r\n        'primary',\r\n        'warn',\r\n        'critical',\r\n        'link',\r\n      ],\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    type: {\r\n      control: 'radio',\r\n      options: ['button', 'submit'],\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n    },\r\n    ariaLabel: {\r\n      name: 'aria-label',\r\n      control: 'text',\r\n    },\r\n    clicked: { action: 'clicked' },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "file": "projects/common-components/src/lib/essential/button-group/button-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<DividerComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  tags: ['autodocs'],\r\n  component: DividerComponent,\r\n  argTypes: {\r\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\r\n    align: { control: 'radio', options: ['start', 'center', 'end'] },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
+                "type": "Meta<ButtonGroupComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Button Group',\r\n  component: ButtonGroupComponent,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    layout: 'centered',\r\n  }\r\n}"
             },
             {
                 "name": "meta",
@@ -350,11 +377,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DividerComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  tags: ['autodocs'],\r\n  component: DividerComponent,\r\n  argTypes: {\r\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\r\n    align: { control: 'radio', options: ['start', 'center', 'end'] },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TextComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n}"
+                "type": "Meta<TextStoryArgs>",
+                "defaultValue": "{\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n}"
             },
             {
                 "name": "Muted",
@@ -364,7 +401,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    muted: true,\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Playground",
@@ -387,6 +424,26 @@
                 "defaultValue": "{\r\n  args: {\r\n    size: 'md',\r\n    level: undefined\r\n  },\r\n}"
             },
             {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Polymorphic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -395,16 +452,6 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\r\n  // wrap the story by merging the story output instead of using <story /> element\r\n  decorators: [\r\n    (story, context) => {\r\n      const storyResult = story();\r\n      return {\r\n        ...storyResult,\r\n        template: `<div [attr.data-theme]=\"theme\" style=\"height:100%; background-color: var(--cc-body-bg)\">${storyResult.template || ''}</div>`,\r\n        props: { ...(storyResult.props || {}), theme: context.globals?.['theme'] },\r\n        // preserve moduleMetadata / standalone imports if provided by the story\r\n        moduleMetadata: { ...(storyResult.moduleMetadata || {}) },\r\n      };\r\n    },\r\n  ],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },\r\n  },\r\n}"
-            },
-            {
-                "name": "RightAligned",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"right\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
             },
             {
                 "name": "SemanticOverride",
@@ -425,6 +472,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; align-items: center; padding: 5px\">\r\n        <cc-button size=\"sm\">Small</cc-button>\r\n        <cc-button size=\"md\">Medium</cc-button>\r\n        <cc-button size=\"lg\">Large</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Themes",
@@ -487,16 +544,6 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Actions\">\r\n        <cc-button>Save</cc-button>\r\n        <cc-button disabled>Delete</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
-                "name": "WithRichContent",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-header size=\"lg\">\r\n        Transactions\r\n        <span style=\"color: var(--cc-neutral-500); font-weight: 400\">\r\n          (last 30 days)\r\n        </span>\r\n      </cc-header>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
                 "name": "WithRouterLinks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -524,8 +571,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
+                "rawtype": "StoryObj<StoryArgs>",
+                "file": "projects/common-components/src/lib/complex/popup/popup.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -535,8 +582,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<StoryArgs>",
-                "file": "projects/common-components/src/lib/complex/popup/popup.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -557,17 +604,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DividerComponent>",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<HeaderComponent>",
                 "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
@@ -579,7 +615,18 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TextComponent>",
+                "rawtype": "StoryObj<DividerComponent>",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextStoryArgs>",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -631,6 +678,78 @@
                     "defaultValue": "{\r\n  title: 'UI/Popup',\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n  },\r\n  argTypes: {\r\n    visible: { control: 'boolean' },\r\n    title: { control: 'text' },\r\n  },\r\n}"
                 }
             ],
+            "projects/common-components/src/lib/essential/text/text.stories.ts": [
+                {
+                    "name": "Alignment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextStoryArgs>",
+                    "defaultValue": "{\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "Muted",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Polymorphic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
                 {
                     "name": "AllSizes",
@@ -641,16 +760,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px\">\r\n        <cc-header size=\"xxlg\">XXLG — h1</cc-header>\r\n        <cc-header size=\"xlg\">XLG — h2</cc-header>\r\n        <cc-header size=\"lg\">LG — h3</cc-header>\r\n        <cc-header size=\"md\">MD — h4</cc-header>\r\n        <cc-header size=\"sm\">SM — h5</cc-header>\r\n        <cc-header size=\"xsm\">XSM — h6</cc-header>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "DarkTheme",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div data-theme=\"dark\" style=\"background: var(--cc-body-bg); padding: 16px\">\r\n        <cc-header size=\"xxlg\">Dark mode header</cc-header>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "meta",
@@ -681,16 +790,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px\">\r\n        <cc-header size=\"xxlg\" level=\"3\">\r\n          Visually H1, Semantically H3\r\n        </cc-header>\r\n\r\n        <cc-header size=\"lg\" level=\"5\">\r\n          Visually H3, Semantically H5\r\n        </cc-header>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithRichContent",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-header size=\"lg\">\r\n        Transactions\r\n        <span style=\"color: var(--cc-neutral-500); font-weight: 400\">\r\n          (last 30 days)\r\n        </span>\r\n      </cc-header>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/common-components/src/lib/essential/button/button.stories.ts": [
@@ -847,68 +946,6 @@
                     "deprecationMessage": "",
                     "type": "StoryObj<LayoutComponent>",
                     "defaultValue": "{\r\n  args: {\r\n    type: \"full\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
-                }
-            ],
-            "projects/common-components/src/lib/essential/text/text.stories.ts": [
-                {
-                    "name": "Centered",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"center\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    muted: false,\r\n    align: 'left',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\" [align]=\"align\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "loremIpsum",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "defaultValue": "`\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan mi eget nisi fermentum, et faucibus lacus placerat. Donec dignissim laoreet mi ultricies pharetra. Etiam condimentum scelerisque sollicitudin. Nullam posuere sodales mi eget egestas. Quisque nec orci maximus, luctus lacus non, dignissim diam. Praesent dui eros, tempor nec magna quis, porta sollicitudin urna. Etiam vitae urna mollis, cursus ipsum ut, sagittis dolor. Pellentesque sit amet porttitor elit. Nulla lectus eros, finibus id eleifend quis, pharetra in urna. Nullam eget odio tellus. Nulla vel lorem dui. Nam consequat efficitur convallis. Fusce commodo convallis felis, ac gravida massa ullamcorper nec.\r\n\r\nPhasellus eget metus in lorem malesuada dapibus et nec leo. Praesent placerat, nisi eget mattis ultricies, ante sem laoreet purus, non rutrum erat lacus vitae tellus. Curabitur ornare auctor arcu, finibus maximus libero malesuada ac. Quisque in dignissim purus, vel ultrices lectus. Aliquam erat volutpat. Sed blandit eget sapien vitae euismod. Aenean tempor, enim vehicula convallis feugiat, enim lectus convallis lorem, sit amet semper sapien nunc non quam. Pellentesque vel tellus eget orci gravida condimentum. Sed in nisl nisi. Etiam aliquet, leo ac condimentum viverra, nisl nisi consequat ligula, et mollis erat justo at mi. Pellentesque fermentum, arcu vitae facilisis vulputate, magna libero congue quam, non vestibulum sem magna a magna. Fusce at eros euismod, ornare turpis tincidunt, condimentum augue.\r\n\r\nSed pellentesque lorem sed vestibulum dapibus. Donec sit amet consequat leo, a ornare metus. Fusce sit amet laoreet eros. Sed lorem arcu, semper ut nisi et, placerat aliquam diam. Nulla iaculis felis at magna posuere rhoncus. Donec ac ex quis lacus suscipit congue lacinia vitae odio. Sed pellentesque velit risus, et euismod erat vestibulum sit amet. In eu cursus est. Praesent sed tortor mattis, faucibus velit at, dictum enim.\r\n\r\nAliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum, nisi at euismod sodales, nunc ex vehicula dolor, quis tincidunt eros odio ac mi. Aenean suscipit commodo justo sit amet tempus. Phasellus luctus arcu vitae libero rutrum pharetra. Sed vitae iaculis lacus, sit amet mattis ipsum. Etiam vitae hendrerit elit. Quisque leo tellus, gravida non lacus a, consectetur tempor turpis. Quisque bibendum quis eros nec malesuada.\r\n\r\nVestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. \r\n`"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextComponent>",
-                    "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    muted: { control: 'boolean' },\r\n    align: {\r\n      control: 'radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "Muted",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    muted: true,\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<cc-text [muted]=\"muted\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "RightAligned",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `<cc-text align=\"right\">${loremIpsum}</cc-text>`,\r\n  }),\r\n}"
                 }
             ],
             "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
@@ -1088,19 +1125,6 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/common-components/src/lib/complex/popup/popup.stories.ts": [
                 {
                     "name": "Story",
@@ -1108,6 +1132,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<StoryArgs>",
                     "file": "projects/common-components/src/lib/complex/popup/popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/common-components/src/lib/essential/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1127,19 +1164,6 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DividerComponent>",
-                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
                 {
                     "name": "Story",
@@ -1153,12 +1177,25 @@
                     "kind": 184
                 }
             ],
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DividerComponent>",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/common-components/src/lib/essential/text/text.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TextComponent>",
+                    "rawtype": "StoryObj<TextStoryArgs>",
                     "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -1481,16 +1518,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "DarkTheme",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1518,16 +1545,6 @@
             },
             {
                 "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithRichContent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
@@ -1538,10 +1555,19 @@
             },
             {
                 "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TextStoryArgs",
+                "coveragePercent": 20,
+                "coverageCount": "1/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Centered",
+                "name": "Alignment",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1551,17 +1577,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "loremIpsum",
+                "name": "Example",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1591,7 +1607,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "RightAligned",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Polymorphic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
