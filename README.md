@@ -1,6 +1,18 @@
 # AngularComponents
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+This project is an multi repo of Angular components libraries.
+
+## Resources
+
+### Storybook
+
+Published latest version of UI in isolated Storybook workshop can be found here:
+* [Common components](https://ssongin.github.io/angular-components/storybook/common-components)
+
+### Docusaurus
+
+Documentation for latest version components in GithubPages:
+* [Common components](https://ssongin.github.io/angular-components/docs)
 
 ## Development server
 

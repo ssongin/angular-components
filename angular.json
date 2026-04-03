@@ -14,7 +14,7 @@
       "projectType": "library",
       "root": "projects/common-components",
       "sourceRoot": "projects/common-components/src",
-      "prefix": "lib",
+      "prefix": "cc",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"

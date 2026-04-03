@@ -1,0 +1,111 @@
+name: PR Preview Deploy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      BASE_PATH: PR-${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # 🔹 Build Docusaurus (with PR base path)
+      - name: Build docs
+        run: |
+          cd docs
+          npm ci
+          npm run build
+          cd ..
+        env:
+          PR_NUMBER: ${{ env.PR_NUMBER }}
+
+      # 🔹 Build Storybook
+      - name: Build Storybook
+        run: npm run build-storybook:common
+
+      # 🔹 Prepare preview structure
+      - name: Prepare preview files
+        run: |
+          mkdir -p preview/${BASE_PATH}/storybook
+
+          cp -r docs/build preview/${BASE_PATH}/docs
+          cp -r dist/storybook preview/${BASE_PATH}
+
+      # 🔹 Checkout gh-pages
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      # 🔹 Replace only this PR folder
+      - name: Update PR preview
+        run: |
+          rm -rf gh-pages/${BASE_PATH}
+          cp -r preview/${BASE_PATH} gh-pages/
+
+      # 🔹 Commit & push
+      - name: Deploy preview
+        run: |
+          cd gh-pages
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Deploy PR preview #${PR_NUMBER}" || echo "No changes"
+          git push
+
+      # 🔹 Comment (or update) PR
+      - name: Comment preview links
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const base = `https://ssongin.github.io/angular-components/PR-${pr}`;
+
+            const body = `🚀 **Preview available**
+
+            📘 Docs: ${base}/docs  
+            📚 Storybook: ${base}/storybook/common-components
+            `;
+
+            const comments = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: pr
+            });
+
+            const existing = comments.data.find(c =>
+              c.body.includes('🚀 **Preview available**')
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...context.repo,
+                comment_id: existing.id,
+                body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: pr,
+                body
+              });
+            }
