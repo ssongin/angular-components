@@ -2,6 +2,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const pr = process.env.PR_NUMBER;
+
 const config: Config = {
   title: 'Angular Components',
   tagline: 'Dinosaurs are cool',
@@ -13,7 +15,9 @@ const config: Config = {
   },
 
   url: 'https://ssongin.github.io',
-  baseUrl: '/angular-components/docs/',
+  baseUrl: pr
+  ? `/angular-components/PR-${pr}/docs/`
+  : '/angular-components/docs/',
 
   organizationName: 'ssongin', // Usually your GitHub org/user name.
   projectName: 'angular-components', // Usually your repo name.

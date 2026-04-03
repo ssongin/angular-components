@@ -23,7 +23,8 @@ import { TextComponent } from '@ssongin/common-components';
 ### Basic example
 
 ```html
-<cc-text>Lorum ipsum</cc-text>```
+<cc-text>Lorum ipsum</cc-text>
+```
 
 ### Inputs
 
