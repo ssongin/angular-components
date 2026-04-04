@@ -3,6 +3,10 @@ name: PR Validation
 on:
   pull_request:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   validate-commit:
     runs-on: ubuntu-latest
@@ -37,10 +41,14 @@ jobs:
   build-docusaurus:
     runs-on: ubuntu-latest
     needs: validate-commit
+
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+
     defaults:
       run:
         working-directory: ./docs
-        
+
     steps:
       - uses: actions/checkout@v4
 
@@ -50,7 +58,119 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build   
+      - run: npm run build
+
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-build
+          path: docs/build
+
+  storybook-build:
+    runs-on: ubuntu-latest
+    needs: validate-commit
+
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build-storybook:common
+
+      - name: Upload storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-build
+          path: dist/storybook
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    needs: [build-docusaurus, storybook-build]
+
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      BASE_PATH: PR-${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Download docs
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-build
+          path: docs-build
+
+      - name: Download storybook
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-build
+          path: storybook-build
+
+      - name: Prepare preview files
+        run: |
+          mkdir -p preview/${BASE_PATH}/storybook
+
+          cp -r docs-build preview/${BASE_PATH}/docs
+          cp -r storybook-build preview/${BASE_PATH}/storybook/common-components
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Update PR preview
+        run: |
+          rm -rf gh-pages/${BASE_PATH}
+          cp -r preview/${BASE_PATH} gh-pages/
+
+      - name: Deploy preview
+        run: |
+          cd gh-pages
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "docs(preview): Deploy PR preview #${PR_NUMBER}" || echo "No changes"
+          git push
+
+      - name: Comment preview links
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const base = `https://ssongin.github.io/angular-components/PR-${pr}`;
+
+            const body = `🚀 **Preview available**
+
+            📘 Docs: ${base}/docs  
+            📚 Storybook: ${base}/storybook/common-components
+            `;
+
+            const comments = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: pr
+            });
+
+            const existing = comments.data.find(c =>
+              c.body.includes('🚀 **Preview available**')
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...context.repo,
+                comment_id: existing.id,
+                body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: pr,
+                body
+              });
+            }
 
   build:
     runs-on: ubuntu-latest
@@ -66,21 +186,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-
-  storybook-build:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-
-      - run: npm ci
-      - run: npm run build-storybook
 
   test:
     runs-on: ubuntu-latest
