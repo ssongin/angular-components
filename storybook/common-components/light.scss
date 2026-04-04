@@ -1,0 +1,23 @@
+[data-theme='light'] {
+  --cc-body-bg: var(--cc-neutral-100);
+  --cc-color-text: var(--cc-neutral-900);
+  --cc-color-bg: var(--cc-neutral-0);
+  --cc-color-border: var(--cc-neutral-300);
+
+  /* Solid hover/active tokens (no transparency) */
+  --cc-default-bg: var(--cc-neutral-300);
+  --cc-default-hover-solid: var(--cc-neutral-400);
+  --cc-default-active-solid: var(--cc-neutral-500);
+
+  --cc-outline-bg: rgba(0, 0, 0, var(--cc-transparency-0));
+  --cc-outline-hover-solid: var(--cc-neutral-200);
+  --cc-outline-active-solid: var(--cc-neutral-300);
+
+  /* keep primary/warn/critical tokens if needed (examples) */
+  --cc-primary: #2563eb;
+  --cc-primary-hover: #1d4ed8;
+  --cc-warn: #d97706;
+  --cc-warn-hover-solid: #fff7ed;
+  --cc-critical: #dc2626;
+  --cc-critical-hover-solid: #fff1f2;
+}
