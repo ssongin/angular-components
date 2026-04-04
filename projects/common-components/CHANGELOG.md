@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.4.5
+
+### Patch Changes
+
+- cicd: Add preview cleanup
+
 ## 0.4.4
 
 ### Patch Changes
