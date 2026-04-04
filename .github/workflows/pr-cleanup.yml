@@ -1,0 +1,52 @@
+name: PR Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      BASE_PATH: PR-${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Debug before cleanup
+        run: |
+          echo "Looking for folder: ${BASE_PATH}"
+          echo "Current root contents:"
+          ls -la
+
+      - name: Remove preview folder
+        run: |
+          if [ -d "${BASE_PATH}" ]; then
+            echo "Removing ${BASE_PATH}"
+            rm -rf "${BASE_PATH}"
+          else
+            echo "Folder ${BASE_PATH} does not exist — nothing to remove"
+          fi
+
+      - name: Debug after cleanup
+        run: |
+          echo "Contents after cleanup:"
+          ls -la
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add -A
+          git commit -m "Cleanup PR preview #${PR_NUMBER}" || echo "No changes to commit"
+
+          git push
