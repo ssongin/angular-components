@@ -38,12 +38,12 @@
         },
         {
             "name": "TextStoryArgs",
-            "id": "interface-TextStoryArgs-3030454ec884d5f422868e896c266509303eb04feaaaf6dda0123ab337a94c2683950914f57576615afe22c9bd0293443b05fadc22af62a7ae57bcb081495db9",
+            "id": "interface-TextStoryArgs-013ff51a05f0c00c3ae54c847602539fad96769c472f402e57ee4fd27144dad18e011eaf95a3271f32651d784ebb50090e56aa8953df18b6640eaf7040033409",
             "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { TextComponent } from './text.component';\r\n\r\n/**\r\n * Storybook args are an explicit API.\r\n * Do NOT rely on Angular input inference (broken in SB10).\r\n */\r\ninterface TextStoryArgs {\r\n  element: 'p' | 'span' | 'div';\r\n  size: 'sm' | 'md' | 'lg';\r\n  align: 'left' | 'center' | 'right';\r\n  muted: boolean;\r\n}\r\n\r\nconst meta: Meta<TextStoryArgs> = {\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<TextStoryArgs>;\r\n\r\nexport const Playground: Story = {\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Sizes: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Polymorphic: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Alignment: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Muted: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Example: Story = {\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\n\r\n",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport { TextComponent } from './text.component';\r\n\r\nconst loremIpsum = `\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan mi eget nisi fermentum, et faucibus lacus placerat. Donec dignissim laoreet mi ultricies pharetra. Etiam condimentum scelerisque sollicitudin. Nullam posuere sodales mi eget egestas. Quisque nec orci maximus, luctus lacus non, dignissim diam. Praesent dui eros, tempor nec magna quis, porta sollicitudin urna. Etiam vitae urna mollis, cursus ipsum ut, sagittis dolor. Pellentesque sit amet porttitor elit. Nulla lectus eros, finibus id eleifend quis, pharetra in urna. Nullam eget odio tellus. Nulla vel lorem dui. Nam consequat efficitur convallis. Fusce commodo convallis felis, ac gravida massa ullamcorper nec.\r\n\r\nPhasellus eget metus in lorem malesuada dapibus et nec leo. Praesent placerat, nisi eget mattis ultricies, ante sem laoreet purus, non rutrum erat lacus vitae tellus. Curabitur ornare auctor arcu, finibus maximus libero malesuada ac. Quisque in dignissim purus, vel ultrices lectus. Aliquam erat volutpat. Sed blandit eget sapien vitae euismod. Aenean tempor, enim vehicula convallis feugiat, enim lectus convallis lorem, sit amet semper sapien nunc non quam. Pellentesque vel tellus eget orci gravida condimentum. Sed in nisl nisi. Etiam aliquet, leo ac condimentum viverra, nisl nisi consequat ligula, et mollis erat justo at mi. Pellentesque fermentum, arcu vitae facilisis vulputate, magna libero congue quam, non vestibulum sem magna a magna. Fusce at eros euismod, ornare turpis tincidunt, condimentum augue.\r\n\r\nSed pellentesque lorem sed vestibulum dapibus. Donec sit amet consequat leo, a ornare metus. Fusce sit amet laoreet eros. Sed lorem arcu, semper ut nisi et, placerat aliquam diam. Nulla iaculis felis at magna posuere rhoncus. Donec ac ex quis lacus suscipit congue lacinia vitae odio. Sed pellentesque velit risus, et euismod erat vestibulum sit amet. In eu cursus est. Praesent sed tortor mattis, faucibus velit at, dictum enim.\r\n\r\nAliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum, nisi at euismod sodales, nunc ex vehicula dolor, quis tincidunt eros odio ac mi. Aenean suscipit commodo justo sit amet tempus. Phasellus luctus arcu vitae libero rutrum pharetra. Sed vitae iaculis lacus, sit amet mattis ipsum. Etiam vitae hendrerit elit. Quisque leo tellus, gravida non lacus a, consectetur tempor turpis. Quisque bibendum quis eros nec malesuada.\r\n\r\nVestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. \r\n`\r\n\r\ninterface TextStoryArgs {\r\n  element: 'p' | 'span' | 'div';\r\n  size: 'sm' | 'md' | 'lg';\r\n  align: 'left' | 'center' | 'right';\r\n  muted: boolean;\r\n  text: string;\r\n}\r\n\r\nconst meta: Meta<TextStoryArgs> = {\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    element: { control: 'select', options: ['p', 'span', 'div'] },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    align: { control: 'select', options: ['left', 'center', 'right'] },\r\n    muted: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n    text: 'The quick brown fox jumps over the lazy dog',\r\n  },\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<TextStoryArgs>;\r\n\r\nexport const Playground: Story = {\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >${loremIpsum}</cc-text>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Sizes: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Polymorphic: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text element=\"p\">This is a paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">This is a block (div)</cc-text>\r\n        <cc-text element=\"span\">This is inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Alignment: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned text</cc-text>\r\n        <cc-text align=\"center\">Center aligned text</cc-text>\r\n        <cc-text align=\"right\">Right aligned text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n\r\nexport const Muted: Story = {\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n};\r\n",
             "properties": [
                 {
                     "name": "align",
@@ -53,7 +53,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 19
                 },
                 {
                     "name": "element",
@@ -63,7 +63,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 17
                 },
                 {
                     "name": "muted",
@@ -73,7 +73,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 20
                 },
                 {
                     "name": "size",
@@ -83,13 +83,21 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 18
+                },
+                {
+                    "name": "text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
                 }
             ],
             "indexSignatures": [],
             "kind": 172,
-            "description": "<p>Storybook args are an explicit API.\nDo NOT rely on Angular input inference (broken in SB10).</p>\n",
-            "rawdescription": "\n\nStorybook args are an explicit API.\nDo NOT rely on Angular input inference (broken in SB10).\n",
             "methods": [],
             "extends": []
         }
@@ -121,7 +129,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned text</cc-text>\r\n        <cc-text align=\"center\">Center aligned text</cc-text>\r\n        <cc-text align=\"right\">Right aligned text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "AllSizes",
@@ -162,6 +170,16 @@
                 "deprecationMessage": "",
                 "type": "StoryObj<LayoutComponent>",
                 "defaultValue": "{\r\n  args: { type: 'centered' },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Centered content\r\n        </div>\r\n      </cc-layout>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "ComplexLabels",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"inbox\">\r\n\r\n            <ng-template ccTabLabel>\r\n              <div style=\"display:flex;align-items:center;gap:8px;\">\r\n                <span>📥</span>\r\n                <span>Inbox</span>\r\n                <span style=\"padding:2px 6px;border-radius:999px;background:#dbeafe;font-size:12px;\">\r\n                  12\r\n                </span>\r\n              </div>\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Inbox content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"notifications\">\r\n\r\n            <ng-template ccTabLabel>\r\n              🔔 Notifications\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Notifications content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Confirmation",
@@ -244,6 +262,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 12px; flex-wrap: wrap; padding: 5px\">\r\n        <cc-button disabled>Default</cc-button>\r\n        <cc-button variant=\"primary\" disabled>Primary</cc-button>\r\n        <cc-button variant=\"outline\" disabled>Outline</cc-button>\r\n        <cc-button variant=\"link\" disabled>Link</cc-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"general\">\r\n            <ng-template ccTabLabel>General</ng-template>\r\n            <ng-template ccTabContent>General content</ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"security\" [disabled]=\"true\">\r\n            <ng-template ccTabLabel>Security</ng-template>\r\n            <ng-template ccTabContent>Security content</ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"billing\">\r\n            <ng-template ccTabLabel>Billing</ng-template>\r\n            <ng-template ccTabContent>Billing content</ng-template>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "DisabledGroups",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -262,16 +290,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"item\" label=\"Enabled\" />\r\n        <cc-taskbar-item type=\"item\" label=\"Disabled\" [disabled]=\"true\" />\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Example",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "FormPopup",
@@ -324,6 +342,26 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <h3 id=\"group-title\">Zoom controls</h3>\r\n\r\n      <cc-button-group aria-labelledby=\"group-title\">\r\n        <cc-button variant=\"outline\">+</cc-button>\r\n        <cc-button variant=\"outline\">−</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "LazyRendering",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"eager\">\r\n            <ng-template ccTabLabel>Inherited behaviour</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cached by parent default.\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"important\" [cached]=\"true\">\r\n            <ng-template ccTabLabel>Cached/Persistent</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab always stays rendered\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Cached behaviour\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"lazy-tab\" [cached]=\"false\">\r\n            <ng-template ccTabLabel>Renewable</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cache\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy Loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "loremIpsum",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "unknown",
+                "defaultValue": "`\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan mi eget nisi fermentum, et faucibus lacus placerat. Donec dignissim laoreet mi ultricies pharetra. Etiam condimentum scelerisque sollicitudin. Nullam posuere sodales mi eget egestas. Quisque nec orci maximus, luctus lacus non, dignissim diam. Praesent dui eros, tempor nec magna quis, porta sollicitudin urna. Etiam vitae urna mollis, cursus ipsum ut, sagittis dolor. Pellentesque sit amet porttitor elit. Nulla lectus eros, finibus id eleifend quis, pharetra in urna. Nullam eget odio tellus. Nulla vel lorem dui. Nam consequat efficitur convallis. Fusce commodo convallis felis, ac gravida massa ullamcorper nec.\r\n\r\nPhasellus eget metus in lorem malesuada dapibus et nec leo. Praesent placerat, nisi eget mattis ultricies, ante sem laoreet purus, non rutrum erat lacus vitae tellus. Curabitur ornare auctor arcu, finibus maximus libero malesuada ac. Quisque in dignissim purus, vel ultrices lectus. Aliquam erat volutpat. Sed blandit eget sapien vitae euismod. Aenean tempor, enim vehicula convallis feugiat, enim lectus convallis lorem, sit amet semper sapien nunc non quam. Pellentesque vel tellus eget orci gravida condimentum. Sed in nisl nisi. Etiam aliquet, leo ac condimentum viverra, nisl nisi consequat ligula, et mollis erat justo at mi. Pellentesque fermentum, arcu vitae facilisis vulputate, magna libero congue quam, non vestibulum sem magna a magna. Fusce at eros euismod, ornare turpis tincidunt, condimentum augue.\r\n\r\nSed pellentesque lorem sed vestibulum dapibus. Donec sit amet consequat leo, a ornare metus. Fusce sit amet laoreet eros. Sed lorem arcu, semper ut nisi et, placerat aliquam diam. Nulla iaculis felis at magna posuere rhoncus. Donec ac ex quis lacus suscipit congue lacinia vitae odio. Sed pellentesque velit risus, et euismod erat vestibulum sit amet. In eu cursus est. Praesent sed tortor mattis, faucibus velit at, dictum enim.\r\n\r\nAliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum, nisi at euismod sodales, nunc ex vehicula dolor, quis tincidunt eros odio ac mi. Aenean suscipit commodo justo sit amet tempus. Phasellus luctus arcu vitae libero rutrum pharetra. Sed vitae iaculis lacus, sit amet mattis ipsum. Etiam vitae hendrerit elit. Quisque leo tellus, gravida non lacus a, consectetur tempor turpis. Quisque bibendum quis eros nec malesuada.\r\n\r\nVestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. \r\n`"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -367,16 +405,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  component: HeaderComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    size: {\r\n      control: 'select',\r\n      options: ['xxlg', 'xlg', 'lg', 'md', 'sm', 'xsm'],\r\n    },\r\n    level: {\r\n      control: 'select',\r\n      options: [1, 2, 3, 4, 5, 6, undefined],\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-header [size]=\"size\" [level]=\"level\">\r\n        Header text\r\n      </cc-header>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -387,11 +415,41 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<HeaderComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  component: HeaderComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    size: {\r\n      control: 'select',\r\n      options: ['xxlg', 'xlg', 'lg', 'md', 'sm', 'xsm'],\r\n    },\r\n    level: {\r\n      control: 'select',\r\n      options: [1, 2, 3, 4, 5, 6, undefined],\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-header [size]=\"size\" [level]=\"level\">\r\n        Header text\r\n      </cc-header>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Tabs',\r\n  component: TabsComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule, TabsComponent, TabComponent, TabLabelDirective],\r\n    }),\r\n  ],\r\n  args: {\r\n    position: 'top',\r\n    cached: false,\r\n  },\r\n  argTypes: {\r\n    position: {\r\n      control: 'radio',\r\n      options: ['top', 'left', 'right'],\r\n    },\r\n    cached: { control: 'boolean' },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextStoryArgs>",
-                "defaultValue": "{\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    element: { control: 'select', options: ['p', 'span', 'div'] },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    align: { control: 'select', options: ['left', 'center', 'right'] },\r\n    muted: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n    text: 'The quick brown fox jumps over the lazy dog',\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsComponent>",
+                "defaultValue": "{\r\n  title: 'Group/Tabs',\r\n  component: TabsComponent,\r\n  tags: ['autodocs'],\r\n\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        TabsComponent,\r\n        TabComponent,\r\n        TabLabelDirective,\r\n        TabContentDirective,\r\n      ],\r\n    }),\r\n  ],\r\n\r\n  args: {\r\n    position: 'top',\r\n    cached: false,\r\n  },\r\n\r\n  argTypes: {\r\n    position: {\r\n      control: 'radio',\r\n      options: ['top', 'left', 'right'],\r\n    },\r\n    cached: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Muted",
@@ -401,7 +459,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Playground",
@@ -427,11 +485,31 @@
                 "name": "Playground",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      ...args,\r\n      activeTab: 'overview',\r\n    },\r\n    template: `\r\n      <div style=\"padding: 12px; min-height: 300px;\">\r\n\r\n        <cc-tabs\r\n          [position]=\"position\"\r\n          [cached]=\"cached\"\r\n          [(activeId)]=\"activeTab\">\r\n\r\n          <cc-tab id=\"overview\">\r\n            <ng-template tabLabel>Overview</ng-template>\r\n            <div>Overview content</div>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"analytics\">\r\n            <ng-template tabLabel>Analytics</ng-template>\r\n            <div>Analytics content</div>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"settings\">\r\n            <ng-template tabLabel>Settings</ng-template>\r\n            <div>Settings content</div>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >${loremIpsum}</cc-text>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Playground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      ...args,\r\n      activeTab: 'overview',\r\n    },\r\n\r\n    template: `\r\n      <div style=\"padding: 12px; min-height: 300px;\">\r\n\r\n        <cc-tabs\r\n          [position]=\"position\"\r\n          [lazy]=\"lazy\"\r\n          [(activeId)]=\"activeTab\">\r\n\r\n          <cc-tab id=\"overview\">\r\n\r\n            <ng-template ccTabLabel>\r\n              Overview\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Overview content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"analytics\">\r\n\r\n            <ng-template ccTabLabel>\r\n              📊 Analytics\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Analytics content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"settings\">\r\n\r\n            <ng-template ccTabLabel>\r\n              ⚙️ Settings\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Settings content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Polymorphic",
@@ -441,7 +519,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text element=\"p\">This is a paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">This is a block (div)</cc-text>\r\n        <cc-text element=\"span\">This is inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Positions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 24px; padding: 12px;\">\r\n\r\n        <div>\r\n          <h4>Top</h4>\r\n\r\n          <cc-tabs position=\"top\">\r\n\r\n            <cc-tab id=\"top-1\">\r\n              <ng-template ccTabLabel>Home</ng-template>\r\n              <ng-template ccTabContent>Top tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"top-2\">\r\n              <ng-template ccTabLabel>Profile</ng-template>\r\n              <ng-template ccTabContent>Profile content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n        <div style=\"height: 250px;\">\r\n          <h4>Left</h4>\r\n\r\n          <cc-tabs position=\"left\">\r\n\r\n            <cc-tab id=\"left-1\">\r\n              <ng-template ccTabLabel>Navigation</ng-template>\r\n              <ng-template ccTabContent>Left tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"left-2\">\r\n              <ng-template ccTabLabel>Details</ng-template>\r\n              <ng-template ccTabContent>Details content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n        <div style=\"height: 250px;\">\r\n          <h4>Right</h4>\r\n\r\n          <cc-tabs position=\"right\">\r\n\r\n            <cc-tab id=\"right-1\">\r\n              <ng-template ccTabLabel>Activity</ng-template>\r\n              <ng-template ccTabContent>Right tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"right-2\">\r\n              <ng-template ccTabLabel>Logs</ng-template>\r\n              <ng-template ccTabContent>Logs content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "preview",
@@ -481,7 +569,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Themes",
@@ -604,17 +692,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<DividerComponent>",
                 "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
@@ -626,8 +703,41 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<HeaderComponent>",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsComponent>",
+                "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TextStoryArgs>",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsComponent>",
+                "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -687,17 +797,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned</cc-text>\r\n        <cc-text align=\"center\">Center aligned</cc-text>\r\n        <cc-text align=\"right\">Right aligned</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text align=\"left\">Left aligned text</cc-text>\r\n        <cc-text align=\"center\">Center aligned text</cc-text>\r\n        <cc-text align=\"right\">Right aligned text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
-                    "name": "Example",
+                    "name": "loremIpsum",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  name: 'Real-world usage',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 420px;\">\r\n        <cc-text size=\"lg\">\r\n          Account settings\r\n        </cc-text>\r\n\r\n        <cc-text size=\"sm\" muted>\r\n          Manage your personal information and preferences.\r\n        </cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "type": "unknown",
+                    "defaultValue": "`\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan mi eget nisi fermentum, et faucibus lacus placerat. Donec dignissim laoreet mi ultricies pharetra. Etiam condimentum scelerisque sollicitudin. Nullam posuere sodales mi eget egestas. Quisque nec orci maximus, luctus lacus non, dignissim diam. Praesent dui eros, tempor nec magna quis, porta sollicitudin urna. Etiam vitae urna mollis, cursus ipsum ut, sagittis dolor. Pellentesque sit amet porttitor elit. Nulla lectus eros, finibus id eleifend quis, pharetra in urna. Nullam eget odio tellus. Nulla vel lorem dui. Nam consequat efficitur convallis. Fusce commodo convallis felis, ac gravida massa ullamcorper nec.\r\n\r\nPhasellus eget metus in lorem malesuada dapibus et nec leo. Praesent placerat, nisi eget mattis ultricies, ante sem laoreet purus, non rutrum erat lacus vitae tellus. Curabitur ornare auctor arcu, finibus maximus libero malesuada ac. Quisque in dignissim purus, vel ultrices lectus. Aliquam erat volutpat. Sed blandit eget sapien vitae euismod. Aenean tempor, enim vehicula convallis feugiat, enim lectus convallis lorem, sit amet semper sapien nunc non quam. Pellentesque vel tellus eget orci gravida condimentum. Sed in nisl nisi. Etiam aliquet, leo ac condimentum viverra, nisl nisi consequat ligula, et mollis erat justo at mi. Pellentesque fermentum, arcu vitae facilisis vulputate, magna libero congue quam, non vestibulum sem magna a magna. Fusce at eros euismod, ornare turpis tincidunt, condimentum augue.\r\n\r\nSed pellentesque lorem sed vestibulum dapibus. Donec sit amet consequat leo, a ornare metus. Fusce sit amet laoreet eros. Sed lorem arcu, semper ut nisi et, placerat aliquam diam. Nulla iaculis felis at magna posuere rhoncus. Donec ac ex quis lacus suscipit congue lacinia vitae odio. Sed pellentesque velit risus, et euismod erat vestibulum sit amet. In eu cursus est. Praesent sed tortor mattis, faucibus velit at, dictum enim.\r\n\r\nAliquam risus diam, egestas vel eleifend at, tempus at nisl. Maecenas vestibulum, nisi at euismod sodales, nunc ex vehicula dolor, quis tincidunt eros odio ac mi. Aenean suscipit commodo justo sit amet tempus. Phasellus luctus arcu vitae libero rutrum pharetra. Sed vitae iaculis lacus, sit amet mattis ipsum. Etiam vitae hendrerit elit. Quisque leo tellus, gravida non lacus a, consectetur tempor turpis. Quisque bibendum quis eros nec malesuada.\r\n\r\nVestibulum ultricies, lorem nec mattis sollicitudin, elit lectus rhoncus massa, at accumsan felis dolor porta tellus. Donec ornare sem sed enim faucibus, et rhoncus magna interdum. Donec euismod neque sit amet risus luctus pulvinar. Pellentesque dignissim tempor cursus. Curabitur eget lacinia mauris, sed ultrices magna. In vel posuere purus. Vivamus rhoncus turpis varius arcu consequat semper. Sed sed erat mi. Curabitur commodo pretium dui. \r\n`"
                 },
                 {
                     "name": "meta",
@@ -707,7 +817,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TextStoryArgs>",
-                    "defaultValue": "{\r\n  title: 'Components/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    element: {\r\n      control: { type: 'select' },\r\n      options: ['p', 'span', 'div'],\r\n    },\r\n    size: {\r\n      control: { type: 'select' },\r\n      options: ['sm', 'md', 'lg'],\r\n    },\r\n    align: {\r\n      control: { type: 'select' },\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n    muted: {\r\n      control: { type: 'boolean' },\r\n    },\r\n  },\r\n\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    element: { control: 'select', options: ['p', 'span', 'div'] },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    align: { control: 'select', options: ['left', 'center', 'right'] },\r\n    muted: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n    text: 'The quick brown fox jumps over the lazy dog',\r\n  },\r\n}"
                 },
                 {
                     "name": "Muted",
@@ -717,7 +827,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text>Default text</cc-text>\r\n        <cc-text muted>Muted text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "Playground",
@@ -727,7 +837,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >\r\n        The quick brown fox jumps over the lazy dog\r\n      </cc-text>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-text\r\n        [element]=\"element\"\r\n        [size]=\"size\"\r\n        [align]=\"align\"\r\n        [muted]=\"muted\"\r\n      >${loremIpsum}</cc-text>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "Polymorphic",
@@ -737,7 +847,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text element=\"p\">Paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">Block (div)</cc-text>\r\n        <cc-text element=\"span\">Inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text element=\"p\">This is a paragraph (p)</cc-text>\r\n        <cc-text element=\"div\">This is a block (div)</cc-text>\r\n        <cc-text element=\"span\">This is inline (span)</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 },
                 {
                     "name": "Sizes",
@@ -747,7 +857,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
@@ -948,6 +1058,68 @@
                     "defaultValue": "{\r\n  args: {\r\n    type: \"full\"\r\n  },\r\n\r\n  render: args => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <cc-layout [type]=\"type\">\r\n        <div style=\"background:#eee;padding:2rem\">\r\n          Fill content\r\n        </div>\r\n      </cc-layout>\r\n    `\r\n  })\r\n}"
                 }
             ],
+            "projects/common-components/src/lib/group/tabs/tabs.stories.ts": [
+                {
+                    "name": "ComplexLabels",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"inbox\">\r\n\r\n            <ng-template ccTabLabel>\r\n              <div style=\"display:flex;align-items:center;gap:8px;\">\r\n                <span>📥</span>\r\n                <span>Inbox</span>\r\n                <span style=\"padding:2px 6px;border-radius:999px;background:#dbeafe;font-size:12px;\">\r\n                  12\r\n                </span>\r\n              </div>\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Inbox content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"notifications\">\r\n\r\n            <ng-template ccTabLabel>\r\n              🔔 Notifications\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Notifications content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"general\">\r\n            <ng-template ccTabLabel>General</ng-template>\r\n            <ng-template ccTabContent>General content</ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"security\" [disabled]=\"true\">\r\n            <ng-template ccTabLabel>Security</ng-template>\r\n            <ng-template ccTabContent>Security content</ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"billing\">\r\n            <ng-template ccTabLabel>Billing</ng-template>\r\n            <ng-template ccTabContent>Billing content</ng-template>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "LazyRendering",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"eager\">\r\n            <ng-template ccTabLabel>Inherited behaviour</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cached by parent default.\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"important\" [cached]=\"true\">\r\n            <ng-template ccTabLabel>Cached/Persistent</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab always stays rendered\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Cached behaviour\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"lazy-tab\" [cached]=\"false\">\r\n            <ng-template ccTabLabel>Renewable</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cache\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy Loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsComponent>",
+                    "defaultValue": "{\r\n  title: 'Group/Tabs',\r\n  component: TabsComponent,\r\n  tags: ['autodocs'],\r\n\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        TabsComponent,\r\n        TabComponent,\r\n        TabLabelDirective,\r\n        TabContentDirective,\r\n      ],\r\n    }),\r\n  ],\r\n\r\n  args: {\r\n    position: 'top',\r\n    cached: false,\r\n  },\r\n\r\n  argTypes: {\r\n    position: {\r\n      control: 'radio',\r\n      options: ['top', 'left', 'right'],\r\n    },\r\n    cached: {\r\n      control: 'boolean',\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      ...args,\r\n      activeTab: 'overview',\r\n    },\r\n\r\n    template: `\r\n      <div style=\"padding: 12px; min-height: 300px;\">\r\n\r\n        <cc-tabs\r\n          [position]=\"position\"\r\n          [lazy]=\"lazy\"\r\n          [(activeId)]=\"activeTab\">\r\n\r\n          <cc-tab id=\"overview\">\r\n\r\n            <ng-template ccTabLabel>\r\n              Overview\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Overview content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"analytics\">\r\n\r\n            <ng-template ccTabLabel>\r\n              📊 Analytics\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Analytics content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"settings\">\r\n\r\n            <ng-template ccTabLabel>\r\n              ⚙️ Settings\r\n            </ng-template>\r\n\r\n            <ng-template ccTabContent>\r\n              Settings content\r\n            </ng-template>\r\n\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Positions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: grid; gap: 24px; padding: 12px;\">\r\n\r\n        <div>\r\n          <h4>Top</h4>\r\n\r\n          <cc-tabs position=\"top\">\r\n\r\n            <cc-tab id=\"top-1\">\r\n              <ng-template ccTabLabel>Home</ng-template>\r\n              <ng-template ccTabContent>Top tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"top-2\">\r\n              <ng-template ccTabLabel>Profile</ng-template>\r\n              <ng-template ccTabContent>Profile content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n        <div style=\"height: 250px;\">\r\n          <h4>Left</h4>\r\n\r\n          <cc-tabs position=\"left\">\r\n\r\n            <cc-tab id=\"left-1\">\r\n              <ng-template ccTabLabel>Navigation</ng-template>\r\n              <ng-template ccTabContent>Left tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"left-2\">\r\n              <ng-template ccTabLabel>Details</ng-template>\r\n              <ng-template ccTabContent>Details content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n        <div style=\"height: 250px;\">\r\n          <h4>Right</h4>\r\n\r\n          <cc-tabs position=\"right\">\r\n\r\n            <cc-tab id=\"right-1\">\r\n              <ng-template ccTabLabel>Activity</ng-template>\r\n              <ng-template ccTabContent>Right tabs content</ng-template>\r\n            </cc-tab>\r\n\r\n            <cc-tab id=\"right-2\">\r\n              <ng-template ccTabLabel>Logs</ng-template>\r\n              <ng-template ccTabContent>Logs content</ng-template>\r\n            </cc-tab>\r\n\r\n          </cc-tabs>\r\n        </div>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
             "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
                 {
                     "name": "Contentless",
@@ -1107,6 +1279,28 @@
                     "type": "Preview",
                     "defaultValue": "{\r\n  // wrap the story by merging the story output instead of using <story /> element\r\n  decorators: [\r\n    (story, context) => {\r\n      const storyResult = story();\r\n      return {\r\n        ...storyResult,\r\n        template: `<div [attr.data-theme]=\"theme\" style=\"height:100%; background-color: var(--cc-body-bg)\">${storyResult.template || ''}</div>`,\r\n        props: { ...(storyResult.props || {}), theme: context.globals?.['theme'] },\r\n        // preserve moduleMetadata / standalone imports if provided by the story\r\n        moduleMetadata: { ...(storyResult.moduleMetadata || {}) },\r\n      };\r\n    },\r\n  ],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },\r\n  },\r\n}"
                 }
+            ],
+            "projects/common-components/src/lib/essential/tabs/tabs.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsComponent>",
+                    "defaultValue": "{\r\n  title: 'Essential/Tabs',\r\n  component: TabsComponent,\r\n  tags: ['autodocs'],\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule, TabsComponent, TabComponent, TabLabelDirective],\r\n    }),\r\n  ],\r\n  args: {\r\n    position: 'top',\r\n    cached: false,\r\n  },\r\n  argTypes: {\r\n    position: {\r\n      control: 'radio',\r\n      options: ['top', 'left', 'right'],\r\n    },\r\n    cached: { control: 'boolean' },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Playground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      ...args,\r\n      activeTab: 'overview',\r\n    },\r\n    template: `\r\n      <div style=\"padding: 12px; min-height: 300px;\">\r\n\r\n        <cc-tabs\r\n          [position]=\"position\"\r\n          [cached]=\"cached\"\r\n          [(activeId)]=\"activeTab\">\r\n\r\n          <cc-tab id=\"overview\">\r\n            <ng-template tabLabel>Overview</ng-template>\r\n            <div>Overview content</div>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"analytics\">\r\n            <ng-template tabLabel>Analytics</ng-template>\r\n            <div>Analytics content</div>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"settings\">\r\n            <ng-template tabLabel>Settings</ng-template>\r\n            <div>Settings content</div>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -1164,19 +1358,6 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/header/header.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<HeaderComponent>",
-                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
                 {
                     "name": "Story",
@@ -1190,6 +1371,32 @@
                     "kind": 184
                 }
             ],
+            "projects/common-components/src/lib/essential/header/header.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderComponent>",
+                    "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/tabs/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsComponent>",
+                    "file": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "projects/common-components/src/lib/essential/text/text.stories.ts": [
                 {
                     "name": "Story",
@@ -1197,6 +1404,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TextStoryArgs>",
                     "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/group/tabs/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsComponent>",
+                    "file": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1554,12 +1774,42 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/essential/tabs/tabs.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/common-components/src/lib/essential/text/text.stories.ts",
                 "type": "interface",
                 "linktype": "interface",
                 "name": "TextStoryArgs",
-                "coveragePercent": 20,
-                "coverageCount": "1/5",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1577,7 +1827,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Example",
+                "name": "loremIpsum",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1658,6 +1908,76 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ComplexLabels",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LazyRendering",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Playground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Positions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/tabs/tabs.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
