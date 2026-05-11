@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocs=globalThis.webpackChunkdocs||[]).push([[1903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/angular-components/PR-23/docs/blog","blogTitle":"Blog","authorsListPath":"/angular-components/PR-23/docs/blog/authors"}')}}]);
