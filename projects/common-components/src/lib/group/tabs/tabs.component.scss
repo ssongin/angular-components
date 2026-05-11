@@ -1,0 +1,211 @@
+:host {
+  display: block;
+}
+
+/* =========================
+   ROOT LAYOUT
+   ========================= */
+
+.ui-tabs {
+  display: flex;
+}
+
+/* orientation */
+
+.ui-tabs--top {
+  flex-direction: column;
+}
+
+.ui-tabs--left {
+  flex-direction: row;
+}
+
+.ui-tabs--right {
+  flex-direction: row-reverse;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.ui-tabs__header {
+  display: flex;
+  background: var(--cc-color-bg);
+}
+
+/* vertical headers */
+
+.ui-tabs--left .ui-tabs__header,
+.ui-tabs--right .ui-tabs__header {
+  flex-direction: column;
+}
+
+/* =========================
+   FILLER
+   ========================= */
+
+.ui-tabs__filler {
+  flex: 1;
+}
+
+/* top */
+
+.ui-tabs--top .ui-tabs__filler {
+  border-bottom: 1px solid var(--cc-color-border);
+}
+
+/* left */
+
+.ui-tabs--left .ui-tabs__filler {
+  border-right: 1px solid var(--cc-color-border);
+}
+
+/* right */
+
+.ui-tabs--right .ui-tabs__filler {
+  border-left: 1px solid var(--cc-color-border);
+}
+
+/* =========================
+   TAB BUTTON
+   ========================= */
+
+.ui-tabs__tab {
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 16px;
+
+  cursor: pointer;
+  user-select: none;
+
+  background: transparent;
+  color: var(--cc-color-text);
+
+  border: 1px solid transparent;
+
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.ui-tabs__tab:hover:not(:disabled) {
+  background: var(--cc-tabs-hover-bg);
+}
+
+.ui-tabs__tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--cc-btn-focus-ring);
+}
+
+/* =========================
+   TOP MODE
+   ========================= */
+
+/* inactive tabs */
+
+.ui-tabs--top .ui-tabs__tab {
+  border-bottom: 1px solid var(--cc-color-border);
+}
+
+/* active tab */
+
+.ui-tabs--top .ui-tabs__tab--active {
+  font-weight: 500;
+
+  background: var(--cc-color-bg);
+
+  border-top-color: var(--cc-color-border);
+  border-left-color: var(--cc-color-border);
+  border-right-color: var(--cc-color-border);
+
+  border-bottom-color: var(--cc-color-bg);
+}
+
+/* =========================
+   LEFT MODE
+   ========================= */
+
+/* inactive tabs */
+
+.ui-tabs--left .ui-tabs__tab {
+  border-right: 1px solid var(--cc-color-border);
+}
+
+/* active tab */
+
+.ui-tabs--left .ui-tabs__tab--active {
+  font-weight: 500;
+
+  background: var(--cc-color-bg);
+
+  border-top-color: var(--cc-color-border);
+  border-left-color: var(--cc-color-border);
+  border-bottom-color: var(--cc-color-border);
+
+  border-right-color: var(--cc-color-bg);
+}
+
+/* =========================
+   RIGHT MODE
+   ========================= */
+
+/* inactive tabs */
+
+.ui-tabs--right .ui-tabs__tab {
+  border-left: 1px solid var(--cc-color-border);
+}
+
+/* active tab */
+
+.ui-tabs--right .ui-tabs__tab--active {
+  font-weight: 500;
+
+  background: var(--cc-color-bg);
+
+  border-top-color: var(--cc-color-border);
+  border-right-color: var(--cc-color-border);
+  border-bottom-color: var(--cc-color-border);
+
+  border-left-color: var(--cc-color-bg);
+}
+
+/* =========================
+   DISABLED TAB
+   ========================= */
+
+.ui-tabs__tab--disabled {
+  cursor: not-allowed;
+
+  color: var(--cc-disabled-text);
+  background: var(--cc-disabled-bg);
+
+  opacity: 0.6;
+
+  pointer-events: none;
+}
+
+/* =========================
+   BODY
+   ========================= */
+
+.ui-tabs__body {
+  flex: 1;
+
+  padding: 16px;
+
+  background: var(--cc-color-bg);
+}
+
+/* =========================
+   PANEL
+   ========================= */
+
+.ui-tabs__panel {
+  display: block;
+}

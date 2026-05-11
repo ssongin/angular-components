@@ -1,0 +1,62 @@
+<div
+  class="ui-tabs"
+  [class.ui-tabs--top]="position() === 'top'"
+  [class.ui-tabs--left]="position() === 'left'"
+  [class.ui-tabs--right]="position() === 'right'">
+
+  <div class="ui-tabs__header" role="tablist">
+
+    @for (tab of tabs(); track tab.id()) {
+
+      <button
+        type="button"
+        class="ui-tabs__tab"
+        [class.ui-tabs__tab--active]="isActive(tab)"
+        [class.ui-tabs__tab--disabled]="tab.disabled()"
+
+        role="tab"
+        [attr.id]="tabButtonId(tab)"
+        [attr.aria-selected]="isActive(tab) ? 'true' : 'false'"
+        [attr.aria-controls]="panelId(tab)"
+
+        [disabled]="tab.disabled()"
+        [tabIndex]="isActive(tab) ? 0 : -1"
+
+        (click)="activateTab(tab)"
+        (keydown)="onKeydown($event, tab)">
+
+        @if (tab.labelTemplate) {
+          <ng-container
+            [ngTemplateOutlet]="tab.labelTemplate?.templateRef">
+          </ng-container>
+        }
+
+      </button>
+    }
+
+    <div class="ui-tabs__filler"></div>
+
+  </div>
+
+  <div class="ui-tabs__body">
+
+    @for (tab of tabs(); track tab.id()) {
+      @if (shouldRender(tab)) {
+        <div
+          class="ui-tabs__panel"
+          [style.display]="isActive(tab) ? 'block' : 'none'"
+          role="tabpanel"
+          [attr.id]="panelId(tab)"
+          [attr.aria-labelledby]="tabButtonId(tab)">
+
+          <ng-container
+            [ngTemplateOutlet]="tab.contentTemplate?.templateRef">
+          </ng-container>
+
+        </div>
+      }
+    }
+
+  </div>
+
+</div>
