@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.5.0
+
+### Minor Changes
+
+- feat: Add tabs component
+
 ## 0.4.5
 
 ### Patch Changes
