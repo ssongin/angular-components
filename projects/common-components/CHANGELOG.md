@@ -1,5 +1,11 @@
 # @ssongin/common-components
 
+## 0.6.0
+
+### Minor Changes
+
+- feat: Add block component
+
 ## 0.5.0
 
 ### Minor Changes
