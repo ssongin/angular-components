@@ -1,0 +1,212 @@
+@use 'sass:map';
+
+$padding: (
+  sm: 12px,
+  md: 16px,
+  lg: 20px,
+);
+
+$font-size: (
+  sm: 12px,
+  md: 14px,
+  lg: 16px,
+);
+
+:host {
+  display: block;
+
+  /* theme variables */
+  --cc-block-bg: var(--cc-color-bg, #ffffff);
+  --cc-block-border: var(--cc-color-border, #d1d5db);
+  --cc-block-text: var(--cc-color-text, #111827);
+
+  --cc-block-radius: var(--cc-radius, 12px);
+
+  --cc-block-padding: 16px;
+
+  /* label spacing */
+  --cc-block-label-padding-x: 4px;
+  --cc-block-label-offset: 16px;
+
+  /*
+    how much wider the border interruption
+    should be than the text itself
+  */
+  --cc-block-label-gap: 6px;
+}
+
+.cc-block {
+  position: relative;
+
+  box-sizing: border-box;
+
+  background: var(--cc-block-bg);
+  color: var(--cc-block-text);
+
+  border-radius: var(--cc-block-radius);
+
+  /*
+    extra top spacing for label
+  */
+  padding:
+    calc(var(--cc-block-padding) + 8px)
+    var(--cc-block-padding)
+    var(--cc-block-padding);
+
+  transition:
+    border-color 0.12s ease,
+    background-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+/*
+  draw border separately
+  so we can cleanly interrupt it
+*/
+.cc-block::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border: 1px solid var(--cc-block-border);
+  border-radius: inherit;
+
+  pointer-events: none;
+}
+
+/* label wrapper */
+.cc-block__label {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 0;
+
+  display: flex;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* actual label */
+.cc-block__label span {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /*
+    perfectly centered on border
+  */
+  transform: translateY(-50%);
+
+  padding-inline: var(--cc-block-label-padding-x);
+
+  font-size: map.get($font-size, md);
+  line-height: 1;
+
+  white-space: nowrap;
+
+  color: var(--cc-block-text);
+
+  /*
+    IMPORTANT:
+    no visible background here
+  */
+  background: transparent;
+
+  pointer-events: auto;
+
+  z-index: 1;
+}
+
+/*
+  THIS creates the border interruption.
+
+  It ONLY masks the border thickness,
+  not the entire label area.
+*/
+.cc-block__label span::before {
+  content: '';
+
+  position: absolute;
+
+  left: calc(var(--cc-block-label-gap) * -1);
+  right: calc(var(--cc-block-label-gap) * -1);
+
+  top: 50%;
+
+  /*
+    slightly larger than border
+    to avoid anti-aliasing artifacts
+  */
+  height: 1.7px;
+
+  transform: translateY(0%);
+
+  background: var(--cc-block-bg);
+
+  z-index: -1;
+}
+
+/* positions */
+
+:host(.cc-block--left) .cc-block__label {
+  justify-content: flex-start;
+}
+
+:host(.cc-block--left) .cc-block__label span {
+  margin-left: var(--cc-block-label-offset);
+}
+
+:host(.cc-block--center) .cc-block__label {
+  justify-content: center;
+}
+
+:host(.cc-block--right) .cc-block__label {
+  justify-content: flex-end;
+}
+
+:host(.cc-block--right) .cc-block__label span {
+  margin-right: var(--cc-block-label-offset);
+}
+
+/* sizes */
+
+@each $size, $pad in $padding {
+  :host(.cc-block--#{$size}) {
+    --cc-block-padding: #{$pad};
+  }
+
+  :host(.cc-block--#{$size}) .cc-block__label span {
+    font-size: map.get($font-size, $size);
+  }
+}
+
+/* focus state */
+
+.cc-block:focus-within::before {
+  border-color: var(--cc-primary, #2563eb);
+
+  box-shadow: 0 0 0 3px var(--cc-btn-focus-ring, #e6eefc);
+}
+
+/* disabled */
+
+:host(.is-disabled) .cc-block,
+:host(.cc-block--disabled) .cc-block {
+  background: var(--cc-disabled-bg);
+  color: var(--cc-disabled-text);
+
+  pointer-events: none;
+}
+
+:host(.is-disabled) .cc-block::before,
+:host(.cc-block--disabled) .cc-block::before {
+  border-color: var(--cc-color-border);
+}

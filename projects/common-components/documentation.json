@@ -162,6 +162,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"menu\" label=\"Applications\">\r\n          <cc-taskbar-item type=\"item\" label=\"Dashboard\" />\r\n          <cc-taskbar-item type=\"item\" label=\"Settings\" />\r\n        </cc-taskbar-item>\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "Center",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Centered Label',\r\n    position: 'center',\r\n  },\r\n}"
+            },
+            {
                 "name": "Centered",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -252,6 +262,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Pagination\">\r\n        <cc-button>Previous</cc-button>\r\n        <cc-button variant=\"primary\">Next</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -290,6 +310,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"item\" label=\"Enabled\" />\r\n        <cc-taskbar-item type=\"item\" label=\"Disabled\" [disabled]=\"true\" />\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "FormExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding:24px;\r\n          display:flex;\r\n          flex-direction:column;\r\n          gap:24px;\r\n          max-width:500px;\r\n        \"\r\n      >\r\n        <cc-block label=\"User Information\">\r\n          <div\r\n            style=\"\r\n              display:flex;\r\n              flex-direction:column;\r\n              gap:12px;\r\n            \"\r\n          >\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"First Name\"\r\n              style=\"\r\n                padding:10px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"Last Name\"\r\n              style=\"\r\n                padding:10px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n          </div>\r\n        </cc-block>\r\n\r\n        <cc-block\r\n          label=\"Centered Settings\"\r\n          position=\"center\"\r\n        >\r\n          <div style=\"padding:8px 0;\">\r\n            Settings content\r\n          </div>\r\n        </cc-block>\r\n\r\n        <cc-block\r\n          label=\"Actions\"\r\n          position=\"right\"\r\n        >\r\n          <div\r\n            style=\"\r\n              display:flex;\r\n              gap:12px;\r\n            \"\r\n          >\r\n            <button\r\n              style=\"\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Cancel\r\n            </button>\r\n\r\n            <button\r\n              style=\"\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Save\r\n            </button>\r\n          </div>\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "FormPopup",
@@ -342,6 +372,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <h3 id=\"group-title\">Zoom controls</h3>\r\n\r\n      <cc-button-group aria-labelledby=\"group-title\">\r\n        <cc-button variant=\"outline\">+</cc-button>\r\n        <cc-button variant=\"outline\">−</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding:24px;\">\r\n        <cc-block\r\n          class=\"cc-block--lg\"\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          Large block content\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n\r\n  args: {\r\n    label: 'Large',\r\n    position: 'left',\r\n  },\r\n}"
+            },
+            {
                 "name": "LazyRendering",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -350,6 +390,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"padding: 12px;\">\r\n\r\n        <cc-tabs>\r\n\r\n          <cc-tab id=\"eager\">\r\n            <ng-template ccTabLabel>Inherited behaviour</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cached by parent default.\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"important\" [cached]=\"true\">\r\n            <ng-template ccTabLabel>Cached/Persistent</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab always stays rendered\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Cached behaviour\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n          <cc-tab id=\"lazy-tab\" [cached]=\"false\">\r\n            <ng-template ccTabLabel>Renewable</ng-template>\r\n            <ng-template ccTabContent>\r\n              This tab is not cache\r\n              <label style=\"display:flex; gap:8px; align-items:center;\">\r\n                <input type=\"checkbox\" />\r\n                Lazy Loading\r\n              </label>\r\n            </ng-template>\r\n          </cc-tab>\r\n\r\n        </cc-tabs>\r\n\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Left",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Left Label',\r\n    position: 'left',\r\n  },\r\n}"
+            },
+            {
+                "name": "LongLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label:\r\n      'Very Long Block Label Example That Demonstrates Border Interruption',\r\n    position: 'center',\r\n  },\r\n}"
             },
             {
                 "name": "loremIpsum",
@@ -405,21 +465,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DividerComponent>",
-                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  tags: ['autodocs'],\r\n  component: DividerComponent,\r\n  argTypes: {\r\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\r\n    align: { control: 'radio', options: ['start', 'center', 'end'] },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
                 "defaultValue": "{\r\n  title: 'Essential/Header',\r\n  component: HeaderComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    size: {\r\n      control: 'select',\r\n      options: ['xxlg', 'xlg', 'lg', 'md', 'sm', 'xsm'],\r\n    },\r\n    level: {\r\n      control: 'select',\r\n      options: [1, 2, 3, 4, 5, 6, undefined],\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <cc-header [size]=\"size\" [level]=\"level\">\r\n        Header text\r\n      </cc-header>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DividerComponent>",
+                "defaultValue": "{\r\n  title: 'Essential/Divider',\r\n  tags: ['autodocs'],\r\n  component: DividerComponent,\r\n  argTypes: {\r\n    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },\r\n    align: { control: 'radio', options: ['start', 'center', 'end'] },\r\n    inset: { control: 'boolean' },\r\n    dashed: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    orientation: 'horizontal',\r\n    align: 'center',\r\n    inset: false,\r\n    dashed: false,\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -440,6 +500,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TextStoryArgs>",
                 "defaultValue": "{\r\n  title: 'Essential/Text',\r\n  component: TextComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    element: { control: 'select', options: ['p', 'span', 'div'] },\r\n    size: { control: 'select', options: ['sm', 'md', 'lg'] },\r\n    align: { control: 'select', options: ['left', 'center', 'right'] },\r\n    muted: { control: 'boolean' },\r\n  },\r\n  args: {\r\n    element: 'p',\r\n    size: 'md',\r\n    align: 'left',\r\n    muted: false,\r\n    text: 'The quick brown fox jumps over the lazy dog',\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BlockComponent>",
+                "defaultValue": "{\r\n  title: 'Group/Block',\r\n  component: BlockComponent,\r\n\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    label: {\r\n      control: 'text',\r\n    },\r\n\r\n    position: {\r\n      control: 'inline-radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n\r\n  args: {\r\n    label: 'Block Label',\r\n    position: 'left',\r\n  },\r\n\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding: 24px; background: var(--cc-color-bg, #fff);\">\r\n        <cc-block\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          <div style=\"display:flex; flex-direction:column; gap:12px;\">\r\n            <div>\r\n              Example content inside the block component.\r\n            </div>\r\n\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"Focusable input\"\r\n              style=\"\r\n                padding:8px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n\r\n            <button\r\n              style=\"\r\n                width:max-content;\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Example Button\r\n            </button>\r\n          </div>\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "meta",
@@ -542,6 +612,16 @@
                 "defaultValue": "{\r\n  // wrap the story by merging the story output instead of using <story /> element\r\n  decorators: [\r\n    (story, context) => {\r\n      const storyResult = story();\r\n      return {\r\n        ...storyResult,\r\n        template: `<div [attr.data-theme]=\"theme\" style=\"height:100%; background-color: var(--cc-body-bg)\">${storyResult.template || ''}</div>`,\r\n        props: { ...(storyResult.props || {}), theme: context.globals?.['theme'] },\r\n        // preserve moduleMetadata / standalone imports if provided by the story\r\n        moduleMetadata: { ...(storyResult.moduleMetadata || {}) },\r\n      };\r\n    },\r\n  ],\r\n  parameters: {\r\n    layout: 'fullscreen',\r\n    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },\r\n  },\r\n}"
             },
             {
+                "name": "Right",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Right Label',\r\n    position: 'right',\r\n  },\r\n}"
+            },
+            {
                 "name": "SemanticOverride",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -570,6 +650,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 12px;\">\r\n        <cc-text size=\"sm\">Small text</cc-text>\r\n        <cc-text size=\"md\">Medium text</cc-text>\r\n        <cc-text size=\"lg\">Large text</cc-text>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding:24px;\">\r\n        <cc-block\r\n          class=\"cc-block--sm\"\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          Small block content\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n\r\n  args: {\r\n    label: 'Small',\r\n    position: 'left',\r\n  },\r\n}"
             },
             {
                 "name": "Themes",
@@ -632,6 +722,16 @@
                 "defaultValue": "{\r\n  render: () => ({\r\n\t\tmoduleMetadata: {\r\n\t\t\timports: [ButtonGroupComponent, ButtonComponent],\r\n  \t},\r\n    template: `\r\n      <cc-button-group aria-label=\"Actions\">\r\n        <cc-button>Save</cc-button>\r\n        <cc-button disabled>Delete</cc-button>\r\n      </cc-button-group>\r\n    `,\r\n  }),\r\n}"
             },
             {
+                "name": "WithoutLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: '',\r\n  },\r\n}"
+            },
+            {
                 "name": "WithRouterLinks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -692,8 +792,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DividerComponent>",
-                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
+                "rawtype": "StoryObj<HeaderComponent>",
+                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -703,8 +803,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                "rawtype": "StoryObj<DividerComponent>",
+                "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -727,6 +827,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TextStoryArgs>",
                 "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BlockComponent>",
+                "file": "projects/common-components/src/lib/group/block/block.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1024,6 +1135,108 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <cc-taskbar>\r\n        <cc-taskbar-item type=\"item\" label=\"Home\" routerLink=\"/home\" />\r\n        <cc-taskbar-item type=\"item\" label=\"Admin\" routerLink=\"/admin\" />\r\n      </cc-taskbar>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
+            "projects/common-components/src/lib/group/block/block.stories.ts": [
+                {
+                    "name": "Center",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Centered Label',\r\n    position: 'center',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "FormExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div\r\n        style=\"\r\n          padding:24px;\r\n          display:flex;\r\n          flex-direction:column;\r\n          gap:24px;\r\n          max-width:500px;\r\n        \"\r\n      >\r\n        <cc-block label=\"User Information\">\r\n          <div\r\n            style=\"\r\n              display:flex;\r\n              flex-direction:column;\r\n              gap:12px;\r\n            \"\r\n          >\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"First Name\"\r\n              style=\"\r\n                padding:10px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"Last Name\"\r\n              style=\"\r\n                padding:10px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n          </div>\r\n        </cc-block>\r\n\r\n        <cc-block\r\n          label=\"Centered Settings\"\r\n          position=\"center\"\r\n        >\r\n          <div style=\"padding:8px 0;\">\r\n            Settings content\r\n          </div>\r\n        </cc-block>\r\n\r\n        <cc-block\r\n          label=\"Actions\"\r\n          position=\"right\"\r\n        >\r\n          <div\r\n            style=\"\r\n              display:flex;\r\n              gap:12px;\r\n            \"\r\n          >\r\n            <button\r\n              style=\"\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Cancel\r\n            </button>\r\n\r\n            <button\r\n              style=\"\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Save\r\n            </button>\r\n          </div>\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding:24px;\">\r\n        <cc-block\r\n          class=\"cc-block--lg\"\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          Large block content\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n\r\n  args: {\r\n    label: 'Large',\r\n    position: 'left',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Left",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Left Label',\r\n    position: 'left',\r\n  },\r\n}"
+                },
+                {
+                    "name": "LongLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label:\r\n      'Very Long Block Label Example That Demonstrates Border Interruption',\r\n    position: 'center',\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BlockComponent>",
+                    "defaultValue": "{\r\n  title: 'Group/Block',\r\n  component: BlockComponent,\r\n\r\n  tags: ['autodocs'],\r\n\r\n  argTypes: {\r\n    label: {\r\n      control: 'text',\r\n    },\r\n\r\n    position: {\r\n      control: 'inline-radio',\r\n      options: ['left', 'center', 'right'],\r\n    },\r\n  },\r\n\r\n  args: {\r\n    label: 'Block Label',\r\n    position: 'left',\r\n  },\r\n\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding: 24px; background: var(--cc-color-bg, #fff);\">\r\n        <cc-block\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          <div style=\"display:flex; flex-direction:column; gap:12px;\">\r\n            <div>\r\n              Example content inside the block component.\r\n            </div>\r\n\r\n            <input\r\n              type=\"text\"\r\n              placeholder=\"Focusable input\"\r\n              style=\"\r\n                padding:8px 12px;\r\n                border:1px solid #d1d5db;\r\n                border-radius:8px;\r\n              \"\r\n            />\r\n\r\n            <button\r\n              style=\"\r\n                width:max-content;\r\n                padding:8px 14px;\r\n                border-radius:8px;\r\n                border:1px solid #d1d5db;\r\n              \"\r\n            >\r\n              Example Button\r\n            </button>\r\n          </div>\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Right",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Right Label',\r\n    position: 'right',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n\r\n    template: `\r\n      <div style=\"padding:24px;\">\r\n        <cc-block\r\n          class=\"cc-block--sm\"\r\n          [label]=\"label\"\r\n          [position]=\"position\"\r\n        >\r\n          Small block content\r\n        </cc-block>\r\n      </div>\r\n    `,\r\n  }),\r\n\r\n  args: {\r\n    label: 'Small',\r\n    position: 'left',\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithoutLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: '',\r\n  },\r\n}"
                 }
             ],
             "projects/common-components/src/lib/layout/layout.stories.ts": [
@@ -1358,19 +1571,6 @@
                     "kind": 184
                 }
             ],
-            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DividerComponent>",
-                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "projects/common-components/src/lib/essential/header/header.stories.ts": [
                 {
                     "name": "Story",
@@ -1378,6 +1578,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderComponent>",
                     "file": "projects/common-components/src/lib/essential/header/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/essential/divider/divider.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DividerComponent>",
+                    "file": "projects/common-components/src/lib/essential/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1404,6 +1617,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TextStoryArgs>",
                     "file": "projects/common-components/src/lib/essential/text/text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/common-components/src/lib/group/block/block.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BlockComponent>",
+                    "file": "projects/common-components/src/lib/group/block/block.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1908,6 +2134,116 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Center",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FormExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Left",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LongLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Right",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/common-components/src/lib/group/block/block.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
